@@ -359,27 +359,36 @@ ul {
 }
 
 .contacts-title {
-  width: 30%;
-  margin-left: auto;
-  text-align: start;
+  width: 48%;
+  margin: 0 0 40px auto;
+  font-family: 'Merriweather', serif;
+  font-size: var(--font2);
+  line-height: 80px;
+  text-align: center;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  gap: 18px;
+  width: 32%;
+  min-width: 450px;
   margin-left: auto;
 }
 
 input {
-  margin-bottom: 20px;
-  padding: 20px;
+  padding: 4px 20px;
+  font-size: var(--font3);
+  line-height: 40px;
   background-color: rgba(0, 0, 0, 0.5);
   border: 2px solid var(--color-gold);
 }
 
 textarea {
-  padding: 20px;
+  margin-bottom: 12px;
+  padding: 4px 25px 12px;
+  font-size: var(--font3);
+  line-height: 40px;
   background-color: rgba(0, 0, 0, 0.5);
   border: 2px solid var(--color-gold);
   resize: none;
