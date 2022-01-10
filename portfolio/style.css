@@ -62,16 +62,36 @@ ul {
 }
 
 .gold-btn {
-  padding: 8px 74px;
+  width: 220px;
+  padding: 6px 0;
   font-family: inherit;
   font-size: var(--font3);
   line-height: 40px;
   background-color: var(--color-gold);
-  border: 0;
+  border: 2px solid var(--color-gold);
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .gold-btn:hover {
+  color: var(--color-white);
+  transition: 0.3s;
+}
+
+.black-btn {
+  width: 220px;
+  padding: 6px 0;
+  color: var(--color-gold);
+  font-family: inherit;
+  font-size: var(--font3);
+  line-height: 40px;
+  background-color: var(--color-black);
+  border: 2px solid var(--color-gold);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.black-btn:hover {
   color: var(--color-white);
   transition: 0.3s;
 }
@@ -218,9 +238,16 @@ ul {
 
 /*Portfolio*/
 
+.portfolio {
+  padding-top: 112px;
+}
+
 .portfolio-btns {
   display: flex;
   justify-content: center;
+  gap: 5px;
+  margin: 0 0 58px;
+  padding-top: 60px;
 }
 
 .portfolio-list {
@@ -228,6 +255,10 @@ ul {
   justify-content: center; 
   flex-wrap: wrap;
   gap: 25px;
+}
+
+.portfolio-item {
+  margin-bottom: -4px;
 }
 
 
