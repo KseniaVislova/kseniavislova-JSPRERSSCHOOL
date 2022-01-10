@@ -386,7 +386,8 @@ input {
 
 textarea {
   margin-bottom: 12px;
-  padding: 4px 25px 12px;
+  padding: 4px 20px 12px;
+  font-family: inherit;
   font-size: var(--font3);
   line-height: 40px;
   background-color: rgba(0, 0, 0, 0.5);
@@ -403,7 +404,8 @@ textarea {
 /*Footer*/
 
 .footer {
-  padding: 50px 0;
+  padding: 37px 0;
+  font-size: var(--font3);
 }
 
 .footer-container {
@@ -411,6 +413,17 @@ textarea {
   justify-content: space-between;
   align-items: center;
   color: var(--color-white);
+}
+
+.copyrights {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.rs {
+  padding-left: 19px;
 }
 
 .social-links {
@@ -430,6 +443,7 @@ textarea {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  transition: 0.3s;
 }
 
 .social-item:nth-child(1) .social-link {
@@ -446,6 +460,11 @@ textarea {
 
 .social-item:nth-child(4  ) .social-link {
   background-image: url('./assets/svg/pinterest.svg');
+}
+
+.social-link:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 
 
