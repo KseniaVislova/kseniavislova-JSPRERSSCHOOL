@@ -4,6 +4,8 @@
   --color-black: #000;
   --font1: 60px;
   --font2: 40px;
+  --font3: 20px;
+  --font4: 18px;
 }
 
 * {
@@ -17,6 +19,8 @@ html {
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: var(--font4);
   color: var(--color-gold);
   background-color: var(--color-black);
 }
@@ -49,23 +53,41 @@ ul {
 
 .header-container {
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
+  align-items: center;
   background: url('./assets/img/bg.jpg');
   background-repeat: no-repeat;
   background-position: center 0;
 }
 
 .header-logo {
+  margin-right: auto;
 }
 
 .nav-list {
   display: flex;
   margin-left: auto;
+  margin-right: 30px;
+}
+
+.nav-item {
+  font-size: var(--font3);
+  line-height: 55px;
 }
 
 .nav-item:not(:last-child) {
-  margin-right: 30px;
+  margin-right: 31px;
+}
+
+.language {
+  display: flex;
+  gap: 10px;
+  font-size: var(--font3);
+  line-height: 55px;
+  color: var(--color-white);
+}
+
+.language-active {
+  color: var(--color-gold);
 }
 
 /*Hero*/
