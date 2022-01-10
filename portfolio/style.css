@@ -424,6 +424,7 @@ textarea {
 }
 
 .rs {
+  display: block;
   padding-left: 19px;
 }
 
