@@ -307,14 +307,46 @@ ul {
 .price-list {
   display: flex;
   justify-content: center;
+  gap: 25px;
+  margin: 0;
+  padding-top: 60px;
 }
 
 .price-item {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 43px 0 38px;
+  border: 2px solid var(--color-gold);
 }
 
-.price-item:not(:last-child) {
-  margin-right: 25px;
+
+.price-subtitle {
+  margin: 0 0 20px;
+  color: var(--color-white);
+  font-family: 'Merriweather', serif;
+  font-size: 28px;
+  line-height: 56px;
+  text-align: center;
+}
+
+.price-text {
+  display: block;
+  margin: 0 0 25px;
+  font-family: 'Merriweather', serif;
+  font-size: 24px;
+  line-height: 48px;
+  text-align: center;
+}
+
+.price-sublist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin: 0 auto 45px;
+  color: var(--color-white);
 }
 
 /*Contacts*/
