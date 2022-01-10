@@ -60,7 +60,19 @@ ul {
 }
 
 .header-logo {
+  display: block;
+  width: 50px;
+  height: 50px;
   margin-right: auto;
+  background-image: url('./assets/svg/logo.svg');
+  background-size: contain;
+  background-repeat: no-repeat;  
+  transition: 0.3s;
+}
+
+.header-logo:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 
 .nav-list {
@@ -71,18 +83,23 @@ ul {
 
 .nav-item {
   font-size: var(--font3);
-  line-height: 55px;
+  line-height: 54px;
 }
 
 .nav-item:not(:last-child) {
   margin-right: 31px;
 }
 
+.nav-link:hover {
+  color: var(--color-gold);
+  transition: 0.3s;
+}
+
 .language {
   display: flex;
   gap: 10px;
   font-size: var(--font3);
-  line-height: 55px;
+  line-height: 54px;
   color: var(--color-white);
 }
 
