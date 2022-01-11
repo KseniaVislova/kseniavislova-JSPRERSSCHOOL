@@ -126,6 +126,11 @@ ul {
     contrast(87%);
 }
 
+.menu-burger, 
+.close {
+  display: none;
+}
+
 .nav-list {
   display: flex;
   margin-left: auto;
@@ -474,10 +479,74 @@ textarea {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --font1: 32px;
+    --font2: 32px;
+  }
+
   /*Header*/
   .header {
+    position: relative;
     background-position: -5px 0;
     background-size: auto 620px;
+  }
+
+  .header-container {
+    min-height: 90px;
+    overflow-x: hidden;
+  }
+
+  .nav {
+    position: absolute;
+    width: 555px;
+    min-height: 100vh;
+    top: 0;
+    right: -620px;
+    padding: 115px 127px;
+    z-index: 1;
+    background-color: var(--color-black);
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .nav-link {
+    font-size: 35px;
+    line-height: 73px;
+  }
+
+  .open {
+    right: -20px;
+    transition: 0.5s
+  }
+
+  .menu-burger {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    background-image: url('./assets/svg/hamburger.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 0;
+  }
+
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    background-image: url('./assets/svg/close.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 0;
   }
 
   /*Hero*/
