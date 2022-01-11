@@ -36,7 +36,7 @@ ul {
 }
 
 .container {
-  width: calc(100% - 40px);
+  width: 100%;
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 20px;
@@ -291,6 +291,10 @@ ul {
 
 .video-img {
   width: 100%;
+}
+
+.video-img-tablet {
+  display: none;
 }
 
 .video-btn {
@@ -634,5 +638,34 @@ textarea {
   .portfolio-btns {
     flex-wrap: wrap;
     padding-top: 49px;
+  }
+
+  /*Video*/
+
+  .video {
+    padding-top: 63px;
+  }
+
+  .video-container {
+    padding: 0;
+  }
+
+  .video-player {
+    padding-top: 50px;
+    overflow-x: hidden;
+  }
+
+  .video-img-tablet {
+    display: block;
+  }
+
+  .video-img-desktop {
+    display: none;
+  }
+
+  .video-btn {
+    width: 75px;
+    height: 75px;
+    background-size: contain;
   }
 }
