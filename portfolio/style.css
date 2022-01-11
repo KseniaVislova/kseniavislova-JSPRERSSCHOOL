@@ -99,12 +99,15 @@ ul {
 
 /*Header*/
 
-.header-container {
-  display: flex;
-  align-items: center;
+.header {
   background: url('./assets/img/bg.jpg');
   background-repeat: no-repeat;
   background-position: center 0;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
 }
 
 .header-logo {
@@ -470,4 +473,16 @@ textarea {
     contrast(87%);
 }
 
+@media (max-width: 768px) {
+  /*Header*/
+  .header {
+    background-position: -5px 0;
+    background-size: auto 620px;
+  }
 
+  /*Hero*/
+  .hero {
+    background-position: -5px -90px;
+    background-size: auto 620px;
+  }
+}
