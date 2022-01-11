@@ -493,7 +493,7 @@ textarea {
   }
 
   .container {
-    padding: 0 40px;
+    padding: 0 60px;
   }
 
   .modal-open {
@@ -648,6 +648,10 @@ textarea {
 
   .video-container {
     padding: 0;
+  }
+
+  .video-title {
+    width: 48%;
   }
 
   .video-player {
