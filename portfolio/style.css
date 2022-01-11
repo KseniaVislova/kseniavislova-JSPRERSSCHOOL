@@ -578,8 +578,21 @@ textarea {
 
   /*Hero*/
   .hero {
-    background-position: -5px -90px;
+    padding: 94px 0 152px;
+    background-position: -5px -120px;
     background-size: auto 620px;
+  }
+
+  .main-title {
+    margin-bottom: 36px;
+    line-height: 32px;
+    font-weight: 400;
+  }
+
+  .hero-text {
+    width: 65%; 
+    margin-bottom: 58px;
+    line-height: 24px;
   }
 
   /*Portfolio*/
