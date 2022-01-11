@@ -627,7 +627,12 @@ textarea {
 
   /*Portfolio*/
 
+  .portfolio {
+    padding-top: 85px;
+  }
+
   .portfolio-btns {
     flex-wrap: wrap;
+    padding-top: 49px;
   }
 }
