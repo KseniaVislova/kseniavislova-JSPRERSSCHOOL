@@ -502,6 +502,19 @@ textarea {
     z-index: 100;
   }
 
+  .section {
+    padding-top: 80px;  
+  }
+
+  .section-title {
+    width: 56%;
+  }
+
+  .section-text {
+    width: 95%;
+    line-height: 22px;
+  }
+
   /*Header*/
 
   .header {
@@ -594,6 +607,23 @@ textarea {
     margin-bottom: 58px;
     line-height: 24px;
   }
+
+  /*Skills*/
+
+  .skills-list {
+    padding-top: 46px;
+  }
+
+  .skills-item {
+    width: 47%;
+    margin-bottom: 75px;
+    padding-top: 78px;
+  }
+
+  .skills-subtitle {
+    margin: 0px 0 22px;
+  }
+
 
   /*Portfolio*/
 
