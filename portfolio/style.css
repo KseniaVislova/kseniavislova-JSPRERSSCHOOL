@@ -97,6 +97,10 @@ ul {
   transition: 0.3s;
 }
 
+.modal {
+  display: none;
+}
+
 /*Header*/
 
 .header {
@@ -484,27 +488,44 @@ textarea {
     --font2: 32px;
   }
 
+  .container {
+    padding: 0 40px;
+  }
+
+  .modal-open {
+    position: absolute;
+    display: block;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+  }
+
   /*Header*/
+
   .header {
     position: relative;
-    background-position: -5px 0;
+    background-position: -5px -30px;
     background-size: auto 620px;
   }
 
   .header-container {
+    position: relative;
     min-height: 90px;
     overflow-x: hidden;
   }
 
   .nav {
     position: absolute;
-    width: 555px;
+    width: 620px;
     min-height: 100vh;
     top: 0;
     right: -620px;
     padding: 115px 127px;
-    z-index: 1;
     background-color: var(--color-black);
+    z-index: 150;
+    transition: 0.5s
   }
 
   .nav-list {
@@ -518,7 +539,7 @@ textarea {
   }
 
   .open {
-    right: -20px;
+    right: 0;
     transition: 0.5s
   }
 
@@ -526,6 +547,8 @@ textarea {
     display: block;
     width: 50px;
     height: 50px;
+    margin-left: 20px;
+    margin-right: 5px;
     background-color: transparent;
     background-image: url('./assets/svg/hamburger.svg');
     background-repeat: no-repeat;
@@ -537,7 +560,7 @@ textarea {
   .close {
     position: absolute;
     top: 20px;
-    right: 0;
+    right: 64px;
     display: block;
     width: 50px;
     height: 50px;
@@ -549,9 +572,19 @@ textarea {
     border: 0;
   }
 
+  .language span {
+    margin-left: 10px;
+  }
+
   /*Hero*/
   .hero {
     background-position: -5px -90px;
     background-size: auto 620px;
+  }
+
+  /*Portfolio*/
+
+  .portfolio-btns {
+    flex-wrap: wrap;
   }
 }
