@@ -2,7 +2,6 @@ let score = 'Вёрстка валидная: 10 \nВёрстка семанти
 console.log(score);
 
 let menuBurger = document.querySelector('.menu-burger');
-let close = document.querySelector('.close');
 let navigation = document.querySelector('.nav');
 const navLinks = document.querySelectorAll('.nav-link');
 let modal = document.querySelector('.modal');
@@ -17,11 +16,7 @@ const closeMenu = (event) => {
 menuBurger.addEventListener('click', () => {
   navigation.classList.toggle('open');
   modal.classList.toggle('modal-open');
-});
-
-close.addEventListener('click', () => {
-  navigation.classList.toggle('open');
-  modal.classList.toggle('modal-open');
+  menuBurger.classList.toggle('close')
 });
 
 navigation.addEventListener('click', closeMenu);
