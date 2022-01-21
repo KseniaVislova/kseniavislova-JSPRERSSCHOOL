@@ -398,6 +398,7 @@ input {
   padding: 4px 20px;
   font-size: var(--font3);
   line-height: 40px;
+  color: #bdae82;
   background-color: rgba(0, 0, 0, 0.5);
   border: 2px solid var(--color-gold);
 }
@@ -405,6 +406,7 @@ input {
 textarea {
   margin-bottom: 12px;
   padding: 4px 20px 12px;
+  color: #bdae82;
   font-family: inherit;
   font-size: var(--font3);
   line-height: 40px;
