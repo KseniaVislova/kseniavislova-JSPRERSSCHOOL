@@ -486,6 +486,20 @@ textarea {
     contrast(87%);
 }
 
+@media (max-width: 1024px) {
+  .skills-item {
+    width: 47%;
+    margin-bottom: 75px;
+  }
+
+  .portfolio-btns {
+    width: 75%;
+    margin: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
 @media (max-width: 768px) {
   :root {
     --font1: 32px;
@@ -523,18 +537,19 @@ textarea {
 
   .header {
     position: relative;
+    max-width: 100%;
     background-position: -5px -30px;
     background-size: auto 620px;
   }
 
   .header-container {
-    position: relative;
+    /*position: relative;*/
     min-height: 90px;
     overflow-x: hidden;
   }
 
   .nav {
-    position: absolute;
+    position: fixed;
     width: 620px;
     min-height: 100vh;
     top: 0;
@@ -616,11 +631,11 @@ textarea {
 
   .skills-list {
     padding-top: 46px;
+    justify-content: center;
   }
 
   .skills-item {
-    width: 47%;
-    margin-bottom: 75px;
+    min-width: 200px;
     padding-top: 78px;
   }
 
@@ -638,6 +653,15 @@ textarea {
   .portfolio-btns {
     flex-wrap: wrap;
     padding-top: 49px;
+  }
+
+  .portfolio-item {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .portfolio-item img {
+    width: 100%;
   }
 
   /*Video*/
@@ -686,7 +710,7 @@ textarea {
     }
   
   .price-item  {
-    min-width: 420px;
+    min-width: 310px;
     width: 65%;
   }
 
@@ -704,6 +728,8 @@ textarea {
   }
 
   .form {
+    min-width: 250px;
+    width: 90%;
     margin: 0 auto;
     padding-top: 30px;
   }
