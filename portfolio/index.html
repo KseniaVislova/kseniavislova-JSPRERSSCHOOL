@@ -15,6 +15,7 @@
 </head>
 
 <body>
+  <div class="modal"></div>
   <header class="header">
     <div class="container header-container">
       <a href="#" class="header-logo"></a>
@@ -30,6 +31,11 @@
       <div class="language">
         <span class="language-active">en</span>/<span>ru</span>
       </div>
+      <button class="menu-burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
   <main class="main">
@@ -84,10 +90,11 @@
       </div>
     </section>
     <section class="section video" id="video">
-      <div class="container">
-        <h2 class="section-title"><span>Video</span></h2>
+      <div class="container video-container">
+        <h2 class="section-title video-title"><span>Video</span></h2>
         <div class="video-player">
-          <img src="./assets/img/video-player.jpg" alt="video-player" class="video-img">
+          <img src="./assets/img/video-player.jpg" alt="video-player" class="video-img video-img-desktop">
+          <img src="./assets/img/video-player-tablet.jpg" alt="video-player" class="video-img video-img-tablet">
           <button class="video-btn"></button>
         </div>
       </div>
@@ -142,7 +149,7 @@
           <input type="email" placeholder="E-mail">
           <input type="tel" placeholder="Phone">
           <textarea cols="30" rows="2" placeholder="Message"></textarea>
-          <button class="gold-btn">Send message</button>
+          <button class="gold-btn contacts-btn">Send message</button>
         </form>
       </div>
     </section>
