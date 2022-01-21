@@ -543,7 +543,6 @@ textarea {
   }
 
   .header-container {
-    /*position: relative;*/
     min-height: 90px;
     overflow-x: hidden;
   }
@@ -562,7 +561,7 @@ textarea {
 
   .nav-list {
     flex-direction: column;
-    gap: 16px;
+    gap: 15px;
   }
 
   .nav-link {
@@ -631,7 +630,6 @@ textarea {
 
   .skills-list {
     padding-top: 46px;
-    justify-content: center;
   }
 
   .skills-item {
@@ -652,12 +650,18 @@ textarea {
 
   .portfolio-btns {
     flex-wrap: wrap;
+    margin-bottom: 60px;
     padding-top: 49px;
   }
 
+  .portfolio-list { 
+    gap: 21px; 
+  }
+
   .portfolio-item {
-    width: 100%;
+    width: 75%;
     margin: 0 auto;
+    padding: 0 18px;
   }
 
   .portfolio-item img {
@@ -667,7 +671,7 @@ textarea {
   /*Video*/
 
   .video {
-    padding-top: 63px;
+    padding-top: 57px;
   }
 
   .video-container {
@@ -679,7 +683,7 @@ textarea {
   }
 
   .video-player {
-    padding-top: 50px;
+    padding-top: 49px;
     overflow-x: hidden;
   }
 
@@ -705,7 +709,7 @@ textarea {
   .price-list {
     flex-direction: column;
     align-items: center;
-    gap: 50px;
+    gap: 53px;
     padding-top: 50px;
     }
   
@@ -714,11 +718,16 @@ textarea {
     width: 65%;
   }
 
+  .price-sublist {
+    gap: 15px;
+    margin: 0 auto 47px;
+  }
+
   /*Contacts*/
 
   .contacts {
     padding-top: 53px;
-    padding-bottom: 111px;
+    padding-bottom: 113px;
     background-size: auto 600px;
   }
 
@@ -729,9 +738,9 @@ textarea {
 
   .form {
     min-width: 250px;
-    width: 90%;
+    width: 70%;
     margin: 0 auto;
-    padding-top: 30px;
+    padding-top: 32px;
   }
 
   .contacts-btn {
@@ -741,7 +750,7 @@ textarea {
   /*Footer*/
 
   .footer {
-    padding: 30px 0 15px;
+    padding: 25px 0 15px;
   }
 
   .footer-container {
