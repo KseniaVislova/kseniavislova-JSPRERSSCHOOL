@@ -10,6 +10,7 @@ const closeMenu = (event) => {
   if (event.target.classList.contains('nav-link')) {
     navigation.classList.remove('open');
     modal.classList.remove('modal-open');
+    menuBurger.classList.remove('close')
   }
 }
 
