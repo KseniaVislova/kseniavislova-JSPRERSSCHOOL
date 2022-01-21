@@ -563,7 +563,7 @@ textarea {
 
   .nav-list {
     flex-direction: column;
-    gap: 15px;
+    gap: 16px;
   }
 
   .nav-link {
@@ -767,5 +767,39 @@ textarea {
   .rs {
     padding-left: 0;
     margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-list {
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .portfolio-item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .section-title {
+    width: 100%;
+  }
+
+  .video-title {
+    width: 70%;
+  }
+
+  .hero {
+    padding: 35px 0 50px;
+  }
+
+  .skills-list {
+    justify-content: center;
+    gap: 5px;
   }
 }
