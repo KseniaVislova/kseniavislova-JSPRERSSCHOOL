@@ -551,6 +551,8 @@ textarea {
   .nav {
     position: fixed;
     width: 620px;
+    max-width: 620px;
+    width: 100%;
     min-height: 100vh;
     top: 0;
     right: -620px;
@@ -805,6 +807,10 @@ textarea {
 
   .section-title {
     width: 100%;
+  }
+
+  .nav {
+    padding: 115px 50px;
   }
 
   .video-title {
