@@ -5,6 +5,10 @@ let menuBurger = document.querySelector('.menu-burger');
 let navigation = document.querySelector('.nav');
 const navLinks = document.querySelectorAll('.nav-link');
 let modal = document.querySelector('.modal');
+const portfolioBtn = document.querySelector('.portfolio-btn');
+const portfolioImage = document.querySelector('.portfolio-image');
+
+//Menu
 
 const closeMenu = (event) => {
   if (event.target.classList.contains('nav-link')) {
@@ -21,3 +25,9 @@ menuBurger.addEventListener('click', () => {
 });
 
 navigation.addEventListener('click', closeMenu);
+
+//Portfolio Images
+
+portfolioBtn.addEventListener('click', () => {
+   portfolioImage.src = "./assets/img/winter/1.jpg"
+});
