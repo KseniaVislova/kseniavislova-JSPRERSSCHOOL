@@ -6,7 +6,7 @@ let navigation = document.querySelector('.nav');
 const navLinks = document.querySelectorAll('.nav-link');
 let modal = document.querySelector('.modal');
 const portfolioBtn = document.querySelector('.portfolio-btn');
-const portfolioImage = document.querySelector('.portfolio-image');
+const portfolioImages = document.querySelectorAll('.portfolio-image');
 
 //Menu
 
@@ -29,5 +29,5 @@ navigation.addEventListener('click', closeMenu);
 //Portfolio Images
 
 portfolioBtn.addEventListener('click', () => {
-   portfolioImage.src = "./assets/img/winter/1.jpg"
+  portfolioImages.forEach((img, index) => img.src = `./assets/img/winter/${index + 1}.jpg`);
 });
