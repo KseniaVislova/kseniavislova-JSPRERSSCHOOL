@@ -5,7 +5,7 @@ let menuBurger = document.querySelector('.menu-burger');
 let navigation = document.querySelector('.nav');
 const navLinks = document.querySelectorAll('.nav-link');
 let modal = document.querySelector('.modal');
-const portfolioBtn = document.querySelector('.portfolio-btn');
+const portfolioBtns = document.querySelectorAll('.portfolio-btn');
 const portfolioImages = document.querySelectorAll('.portfolio-image');
 
 //Menu
@@ -21,13 +21,21 @@ const closeMenu = (event) => {
 menuBurger.addEventListener('click', () => {
   navigation.classList.toggle('open');
   modal.classList.toggle('modal-open');
-  menuBurger.classList.toggle('close')
+  menuBurger.classList.toggle('close');
 });
 
 navigation.addEventListener('click', closeMenu);
 
 //Portfolio Images
 
-portfolioBtn.addEventListener('click', () => {
-  portfolioImages.forEach((img, index) => img.src = `./assets/img/winter/${index + 1}.jpg`);
-});
+function changeImage(event) {
+  console.log(event.target)
+  if(event.target.classList.contains('portfolio-btn')) {
+    portfolioImages.forEach((img, index) => img.src = `./assets/img/${event.target.dataset.season}/${index + 1}.jpg`);
+  }
+}
+
+portfolioBtns .forEach(btn => {
+  btn.addEventListener('click', changeImage);
+})
+
