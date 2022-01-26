@@ -144,7 +144,7 @@ ul {
   color: var(--color-white);
 }
 
-.language-active {
+.languages .active {
   color: var(--color-gold);
 }
 
@@ -273,7 +273,7 @@ ul {
   transition: 0.3s;
 }
 
-.active {
+.portfolio-btns .active {
   width: 220px;
   padding: 6px 0;
   font-family: inherit;

@@ -70,8 +70,16 @@ function changeClassActive(event) {
 
 //Translate 
 
+function changeThemeClass(event) {
+  languageBtns.forEach(btn => {
+    btn.classList.remove('active')
+  })
+  event.target.classList.add('active')
+}
+
 languageBtns.forEach(btn => {
   btn.addEventListener('click', getTranslate)
+  btn.addEventListener('click', changeThemeClass)
 })
 
 function getTranslate(event) {
