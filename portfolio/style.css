@@ -144,6 +144,16 @@ ul {
   color: var(--color-white);
 }
 
+.language {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.language:hover {
+  color: var(--color-gold);
+  transition: 0.3s;
+}
+
 .languages .active {
   color: var(--color-gold);
 }
