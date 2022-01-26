@@ -1,3 +1,5 @@
+import i18Obj from './translate.js';
+
 let score = 'Вёрстка соответствует макету. Ширина экрана 768px: 48 \nНи на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется: 15 \nНа ширине экрана 768рх и меньше реализовано адаптивное меню: 22 \nИтого: 85';
 console.log(score);
 
@@ -8,6 +10,9 @@ let modal = document.querySelector('.modal');
 const portfolioBtns = document.querySelectorAll('.portfolio-btn');
 const portfolioImages = document.querySelectorAll('.portfolio-image');
 const seasons = ['winter', 'spring', 'summer', 'autumn'];
+const dataI18 = document.querySelectorAll('[data-i18]');
+let language = document.querySelector('.language-active');
+const languageBtns = document.querySelectorAll('.language')
 
 //Menu
 
@@ -61,3 +66,30 @@ function changeClassActive(event) {
   })
   event.target.classList.add('active')
 }
+
+
+//Translate 
+
+languageBtns.forEach(btn => {
+  btn.addEventListener('click', getTranslate)
+})
+
+function getTranslate(event) {
+  dataI18.forEach(item => {
+    if (event.target.innerHTML === 'en') {
+      for (let i in i18Obj.en) {
+        if (i === item.dataset.i18) {
+          item.textContent = `${i18Obj.en[i]}`
+        }
+      }
+    } 
+    if (event.target.innerHTML === 'ru') {
+      for (let i in i18Obj.ru) {
+        if (i === item.dataset.i18) {
+          item.textContent = `${i18Obj.ru[i]}`
+        }
+      }
+    } 
+  })
+}
+

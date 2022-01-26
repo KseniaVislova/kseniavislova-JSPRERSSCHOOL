@@ -136,7 +136,7 @@ ul {
   transition: 0.3s;
 }
 
-.language {
+.languages {
   display: flex;
   gap: 10px;
   font-size: var(--font3);
@@ -637,7 +637,7 @@ textarea {
     transition: 0.5s;
   }
 
-  .language span {
+  .language {
     margin-left: 10px;
   }
 
