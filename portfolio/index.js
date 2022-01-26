@@ -12,7 +12,9 @@ const portfolioImages = document.querySelectorAll('.portfolio-image');
 const seasons = ['winter', 'spring', 'summer', 'autumn'];
 const dataI18 = document.querySelectorAll('[data-i18]');
 let language = document.querySelector('.language-active');
-const languageBtns = document.querySelectorAll('.language')
+const languageBtns = document.querySelectorAll('.language');
+const theme = document.querySelector('.theme');
+const body = document.querySelector('body');
 
 //Menu
 
@@ -100,4 +102,11 @@ function getTranslate(event) {
     } 
   })
 }
+
+//Theme 
+
+theme.addEventListener('click', () => {
+  body.classList.toggle('light-theme');
+})
+
 
