@@ -7,6 +7,7 @@ const navLinks = document.querySelectorAll('.nav-link');
 let modal = document.querySelector('.modal');
 const portfolioBtns = document.querySelectorAll('.portfolio-btn');
 const portfolioImages = document.querySelectorAll('.portfolio-image');
+const seasons = ['winter', 'spring', 'summer', 'autumn'];
 
 //Menu
 
@@ -29,7 +30,6 @@ navigation.addEventListener('click', closeMenu);
 //Portfolio Images
 
 function changeImage(event) {
-  console.log(event.target)
   if(event.target.classList.contains('portfolio-btn')) {
     portfolioImages.forEach((img, index) => img.src = `./assets/img/${event.target.dataset.season}/${index + 1}.jpg`);
   }
@@ -37,5 +37,27 @@ function changeImage(event) {
 
 portfolioBtns .forEach(btn => {
   btn.addEventListener('click', changeImage);
+  btn.addEventListener('click', changeClassActive);
 })
 
+//Cash
+
+function preloadImages() {
+  seasons.forEach(item => {
+    for(let i = 1; i <= 6; i++) {
+      const img = new Image();
+      img.src = `./assets/img/${item}/${i}.jpg`;
+    }
+  })
+}
+
+preloadImages()
+
+//Switcher of active button
+
+function changeClassActive(event) {
+  portfolioBtns.forEach(btn => {
+    btn.classList.remove('active')
+  })
+  event.target.classList.add('active')
+}

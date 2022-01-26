@@ -79,24 +79,6 @@ ul {
   transition: 0.3s;
 }
 
-.black-btn {
-  width: 220px;
-  padding: 6px 0;
-  color: var(--color-gold);
-  font-family: inherit;
-  font-size: var(--font3);
-  line-height: 40px;
-  background-color: var(--color-black);
-  border: 2px solid var(--color-gold);
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.black-btn:hover {
-  color: var(--color-white);
-  transition: 0.3s;
-}
-
 .modal {
   display: none;
 }
@@ -271,6 +253,37 @@ ul {
 
 .portfolio-item {
   margin-bottom: -4px;
+}
+
+.portfolio-btn {
+  width: 220px;
+  padding: 6px 0;
+  color: var(--color-gold);
+  font-family: inherit;
+  font-size: var(--font3);
+  line-height: 40px;
+  background-color: var(--color-black);
+  border: 2px solid var(--color-gold);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.portfolio-btn:hover {
+  color: var(--color-white);
+  transition: 0.3s;
+}
+
+.active {
+  width: 220px;
+  padding: 6px 0;
+  font-family: inherit;
+  font-size: var(--font3);
+  line-height: 40px;
+  color: var(--color-black);
+  background-color: var(--color-gold);
+  border: 2px solid var(--color-gold);
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 
