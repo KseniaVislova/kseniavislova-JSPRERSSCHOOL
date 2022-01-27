@@ -133,14 +133,25 @@ themeBtn.addEventListener('click', () => {
 
 function setLocalStorage() {
   localStorage.setItem('lang', lang);
+  localStorage.setItem('theme', theme);
 }
 window.addEventListener('beforeunload', setLocalStorage)
 
 function getLocalStorage() {
   if(localStorage.getItem('lang')) {
-    const lang = localStorage.getItem('lang');
+    let lang = localStorage.getItem('lang');
     getTranslate(lang);
   }
+  if (localStorage.getItem('theme')) {
+      let theme = localStorage.getItem('theme');
+      if (localStorage.getItem('theme') === 'light') {
+        body.classList.add('light-theme');
+        document.documentElement.style.setProperty('--color-body', '#fff');
+        document.documentElement.style.setProperty('--color-text', '#1c1c1c');
+        document.documentElement.style.setProperty('--color-hover', '#000');
+    }
+  }
+
 }
 window.addEventListener('load', getLocalStorage)
 
