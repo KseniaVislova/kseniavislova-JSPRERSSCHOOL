@@ -183,7 +183,7 @@ ul {
 
 .main-title {
   margin: 0 0 10px;
-  color: var(--color-text);
+  color: #fff;
   font-family: 'Merriweather', serif;
   font-size: var(--font1);
   line-height: 120px;
@@ -890,6 +890,10 @@ textarea {
 
 .light-theme .theme {
   background-image: url('./assets/svg/moon.svg');
+}
+
+.light-theme .main-title {
+  color: #1c1c1c;
 }
 
 .light-theme .hero-btn {
