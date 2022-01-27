@@ -602,9 +602,13 @@ textarea {
     top: 0;
     right: -620px;
     padding: 115px 127px;
-    background-color: var(--color-text);
+    background-color: var(--color-body);
     z-index: 150;
     transition: 0.5s
+  }
+
+  .light-theme .nav {
+    padding: 115px 121px;
   }
 
   .nav-list {
@@ -612,9 +616,18 @@ textarea {
     gap: 16px;
   }
 
+  .light-theme .nav-list {
+    gap: 23px;
+  } 
+
   .nav-link {
     font-size: 35px;
     line-height: 73px;
+  }
+
+  .light-theme .nav-link {
+    font-family: 'Merriweather', serif;
+    font-size: 40px;
   }
 
   .open {
@@ -629,7 +642,7 @@ textarea {
     justify-content: space-between;
     width: 50px;
     height: 28px;
-    margin-left: 20px;
+    margin-left: 30px;
     margin-right: 5px;
     padding: 0;
     border: 0;
@@ -642,7 +655,7 @@ textarea {
     display: block;
     width: 100%;
     height: 3px;
-    background-color: #fff;
+    background-color: var(--color-text);
     transition: 0.5s;
   }
 
@@ -669,8 +682,13 @@ textarea {
     transition: 0.5s;
   }
 
-  .language {
-    margin-left: 10px;
+  .light-theme .close {
+    margin-right: 13px;
+  }
+
+  .languages {
+    gap: 12px;
+    margin-right: 34px;
   }
 
   /*Hero*/
