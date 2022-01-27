@@ -107,6 +107,15 @@ function getTranslate(event) {
 
 theme.addEventListener('click', () => {
   body.classList.toggle('light-theme');
+  if (body.classList.contains('light-theme')) {
+    document.documentElement.style.setProperty('--color-body', '#fff');
+    document.documentElement.style.setProperty('--color-text', '#1c1c1c');
+    document.documentElement.style.setProperty('--color-hover', '#000');
+  } else {
+    document.documentElement.style.setProperty('--color-body', '#000');
+    document.documentElement.style.setProperty('--color-text', '#fff');
+    document.documentElement.style.setProperty('--color-hover', '#fff');
+  }
 })
 
 
