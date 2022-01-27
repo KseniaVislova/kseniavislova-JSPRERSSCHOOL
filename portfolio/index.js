@@ -13,7 +13,7 @@ const seasons = ['winter', 'spring', 'summer', 'autumn'];
 const dataI18 = document.querySelectorAll('[data-i18]');
 let language = document.querySelector('.language-active');
 const languageBtns = document.querySelectorAll('.language');
-const theme = document.querySelector('.theme');
+const themeBtn = document.querySelector('.theme');
 const body = document.querySelector('body');
 
 //Menu
@@ -105,7 +105,7 @@ function getTranslate(event) {
 
 //Theme 
 
-theme.addEventListener('click', () => {
+themeBtn.addEventListener('click', () => {
   body.classList.toggle('light-theme');
   if (body.classList.contains('light-theme')) {
     document.documentElement.style.setProperty('--color-body', '#fff');
