@@ -16,6 +16,9 @@ const languageBtns = document.querySelectorAll('.language');
 const themeBtn = document.querySelector('.theme');
 const body = document.querySelector('body');
 
+let lang = 'en';
+let theme = 'light';
+
 //Menu
 
 const closeMenu = (event) => {
@@ -80,20 +83,25 @@ function changeThemeClass(event) {
 }
 
 languageBtns.forEach(btn => {
-  btn.addEventListener('click', getTranslate)
+  btn.addEventListener('click', getLang)
   btn.addEventListener('click', changeThemeClass)
 })
 
-function getTranslate(event) {
+function getLang (event) {
+  lang = event.target.innerHTML;
+  getTranslate(lang)
+}
+
+function getTranslate(lang) {
   dataI18.forEach(item => {
-    if (event.target.innerHTML === 'en') {
+    if (lang === 'en') {
       for (let i in i18Obj.en) {
         if (i === item.dataset.i18) {
           item.textContent = `${i18Obj.en[i]}`
         }
       }
     } 
-    if (event.target.innerHTML === 'ru') {
+    if (lang === 'ru') {
       for (let i in i18Obj.ru) {
         if (i === item.dataset.i18) {
           item.textContent = `${i18Obj.ru[i]}`
@@ -108,14 +116,31 @@ function getTranslate(event) {
 themeBtn.addEventListener('click', () => {
   body.classList.toggle('light-theme');
   if (body.classList.contains('light-theme')) {
+    theme = 'light';
     document.documentElement.style.setProperty('--color-body', '#fff');
     document.documentElement.style.setProperty('--color-text', '#1c1c1c');
     document.documentElement.style.setProperty('--color-hover', '#000');
   } else {
+    theme = 'dark';
     document.documentElement.style.setProperty('--color-body', '#000');
     document.documentElement.style.setProperty('--color-text', '#fff');
     document.documentElement.style.setProperty('--color-hover', '#fff');
   }
 })
 
+
+//Local Storage 
+
+function setLocalStorage() {
+  localStorage.setItem('lang', lang);
+}
+window.addEventListener('beforeunload', setLocalStorage)
+
+function getLocalStorage() {
+  if(localStorage.getItem('lang')) {
+    const lang = localStorage.getItem('lang');
+    getTranslate(lang);
+  }
+}
+window.addEventListener('load', getLocalStorage)
 
