@@ -886,6 +886,13 @@ textarea {
 
 .light-theme .header-logo {
   filter: contrast(0%) brightness(0%);
+  transition: 0.3s;
+}
+
+.light-theme .header-logo:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+  transition: 0.3s;
 }
 
 .light-theme .languages {
@@ -898,6 +905,13 @@ textarea {
 
 .light-theme .theme {
   background-image: url('./assets/svg/moon.svg');
+  transition: 0.3s;
+}
+
+.light-theme .theme:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+  transition: 0.3s;
 }
 
 .light-theme .main-title {
@@ -948,4 +962,24 @@ textarea {
 
 .light-theme .social-link {
   filter: contrast(0%) brightness(0%);
+  transition: 0.3s;
+}
+
+.light-theme .social-link:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+  transition: 0.3s;
+}
+
+.light-theme .gold-btn,
+.light-theme .portfolio-btn {
+  padding: 8px 0;
+  border: none;
+}
+
+.light-theme .gold-btn:hover,
+.light-theme .portfolio-btn:hover  {
+  color: var(--color-gold);
+  background-color: var(--color-text);
+  transition: 0.3s;
 }
