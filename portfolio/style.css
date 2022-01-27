@@ -170,6 +170,14 @@ ul {
   background-position: center;
   background-size: contain;
   border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.theme:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+  transition: 0.3s;
 }
 
 /*Hero*/
