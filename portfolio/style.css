@@ -862,6 +862,24 @@ textarea {
   .portfolio-item {
     width: 100%;
   }
+
+  .header-logo { 
+    width: 40px;
+  }
+
+  .languages {
+    margin-right: 15px;
+  }
+
+  .theme { 
+    width: 30px;
+  }
+
+  .menu-burger {
+    margin-left: 15px;
+  }
+
+
 }
 
 @media (max-width: 375px) {
