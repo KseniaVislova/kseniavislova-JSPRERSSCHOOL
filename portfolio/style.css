@@ -93,6 +93,7 @@ ul {
 .gold-btn:hover {
   color: var(--color-hover);
   background-color: transparent;
+  transition: 0.3s;
 }
 
 .light-theme .gold-btn:hover  { 
@@ -426,7 +427,7 @@ ul {
   font-family: inherit;
   font-size: var(--font3);
   line-height: 40px;
-  background-color: var(--color-text);
+  background-color: var(--color-body);
   border: 2px solid var(--color-gold);
   cursor: pointer;
   transition: 0.3s;
