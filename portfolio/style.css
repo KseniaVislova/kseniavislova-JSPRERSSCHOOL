@@ -63,21 +63,143 @@ ul {
   background-color: var(--color-body);
 }
 
+/*Animtate button*/
+
+.btn-block {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  border: 2px solid var(--color-gold);
+  overflow: hidden;
+}
+
 .gold-btn {
+  position: relative;
   width: 220px;
   padding: 6px 0;
   font-family: inherit;
   font-size: var(--font3);
-  line-height: 40px;
+  color: #000;
   background-color: var(--color-gold);
-  border: 2px solid var(--color-gold);
+  border: none;
+  line-height: 40px;
   cursor: pointer;
   transition: 0.3s;
+  z-index: 100;
 }
 
 .gold-btn:hover {
   color: var(--color-hover);
-  transition: 0.3s;
+  background-color: transparent;
+}
+
+.animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wave {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 25%;
+  background-color: var(--color-body);
+  border-radius: 50%;
+  animation: wave 3s linear 1s infinite;
+}
+
+.wave:nth-child(2) {
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  left: 25%;
+  background-color: var(--color-gold);
+  animation: wave 10s linear 1s infinite;
+}
+
+.wave:nth-child(3) {
+  width: 40px;
+  height: 40px;
+  top: 10%;
+  left: 50%;
+  animation: wave 5s linear 1s infinite;
+}
+
+.wave:nth-child(4) {
+  width: 30px;
+  height: 30px;
+  top: 20%;
+  left: 60%;
+  background-color: var(--color-gold);
+  animation: wave 10s linear 1s infinite;
+}
+
+.wave:nth-child(5) {
+  width: 30px;
+  height: 30px;
+  top: 85%;
+  left: 30%;
+  animation: wave 3s linear 1s infinite;
+}
+
+.wave:nth-child(6) {
+  width: 30px;
+  height: 30px;
+  top: 70%;
+  left: 15%;
+  background-color: var(--color-gold);
+  animation: wave 2s linear 1s infinite;
+}
+
+.wave:nth-child(7) {
+  width: 30px;
+  height: 30px;
+  top: 90%;
+  left: 45%;
+  background-color: var(--color-gold);
+  animation: wave 7s linear 1s infinite;
+}
+
+.wave:nth-child(8) {
+  width: 30px;
+  height: 30px;
+  top: 80%;
+  left: 35%;
+  animation: wave 10s linear 1s infinite;
+}
+
+.wave:nth-child(9) {
+  width: 50px;
+  height: 50px;
+  top: 35%;
+  left: 65%;
+  animation: wave 5s linear 1s infinite;
+}
+
+.wave:nth-child(10) {
+  width: 40px;
+  height: 40px;
+  top: 10%;
+  left: 80%;
+  background-color: var(--color-gold);
+  animation: wave 2s linear 1s infinite;
+}
+
+@keyframes wave {
+  from {
+    top: -30%;
+  }
+  50% {
+    top: 100%;
+  }
+  to {
+    top: -30%;
+  }
 }
 
 .modal {
