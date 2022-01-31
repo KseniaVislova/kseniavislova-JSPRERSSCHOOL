@@ -1,7 +1,8 @@
 :root {
   --color-gold: #bdae82;
-  --color-white: #fff;
-  --color-black: #000;
+  --color-hover: #fff;
+  --color-text: #000;
+  --color-body: #000;
   --font1: 60px;
   --font2: 40px;
   --font3: 20px;
@@ -22,11 +23,11 @@ body {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-size: var(--font4);
   color: var(--color-gold);
-  background-color: var(--color-black);
+  background-color: var(--color-body);
 }
 
 a {
-  color: var(--color-white);
+  color: var(--color-hover);
   text-decoration: none;
 }
 
@@ -53,48 +54,162 @@ ul {
   font-size: var(--font2);
   line-height: 80px;
   text-align: center;
-  background-image: linear-gradient(to top, #000 39px, #bdae82 39px, #bdae82 41px, #000 41px);
+  background-image: linear-gradient(to top, var(--color-body) 39px, var(--color-gold) 39px, var(--color-gold) 41px, var(--color-body) 41px);
 }
 
 .section-title span {
   display: inline-block;
   padding: 0 20px;
-  background-color: var(--color-black);
+  background-color: var(--color-body);
+}
+
+/*Animtate button*/
+
+.btn-block {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  border: 2px solid var(--color-gold);
+  overflow: hidden;
 }
 
 .gold-btn {
+  position: relative;
   width: 220px;
   padding: 6px 0;
   font-family: inherit;
   font-size: var(--font3);
-  line-height: 40px;
+  color: #000;
   background-color: var(--color-gold);
-  border: 2px solid var(--color-gold);
+  border: none;
+  line-height: 40px;
   cursor: pointer;
   transition: 0.3s;
+  z-index: 100;
 }
 
 .gold-btn:hover {
-  color: var(--color-white);
+  color: var(--color-hover);
+  background-color: transparent;
   transition: 0.3s;
 }
 
-.black-btn {
-  width: 220px;
-  padding: 6px 0;
-  color: var(--color-gold);
-  font-family: inherit;
-  font-size: var(--font3);
-  line-height: 40px;
-  background-color: var(--color-black);
+.light-theme .gold-btn:hover  { 
+  background-color: transparent;
+  transition: 0.3s;
+}
+
+.animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wave {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 25%;
+  background-color: var(--color-body);
+  border-radius: 50%;
+  animation: wave 3s linear 1s infinite;
+}
+
+.light-theme .wave {
   border: 2px solid var(--color-gold);
-  cursor: pointer;
-  transition: 0.3s;
 }
 
-.black-btn:hover {
-  color: var(--color-white);
-  transition: 0.3s;
+.wave:nth-child(2) {
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  left: 25%;
+  background-color: var(--color-gold);
+  animation: wave 10s linear 1s infinite;
+}
+
+.wave:nth-child(3) {
+  width: 40px;
+  height: 40px;
+  top: 10%;
+  left: 50%;
+  animation: wave 5s linear 1s infinite;
+}
+
+.wave:nth-child(4) {
+  width: 30px;
+  height: 30px;
+  top: 20%;
+  left: 60%;
+  background-color: var(--color-gold);
+  animation: wave 10s linear 1s infinite;
+}
+
+.wave:nth-child(5) {
+  width: 30px;
+  height: 30px;
+  top: 85%;
+  left: 30%;
+  animation: wave 3s linear 1s infinite;
+}
+
+.wave:nth-child(6) {
+  width: 30px;
+  height: 30px;
+  top: 70%;
+  left: 15%;
+  background-color: var(--color-gold);
+  animation: wave 2s linear 1s infinite;
+}
+
+.wave:nth-child(7) {
+  width: 30px;
+  height: 30px;
+  top: 90%;
+  left: 45%;
+  background-color: var(--color-gold);
+  animation: wave 7s linear 1s infinite;
+}
+
+.wave:nth-child(8) {
+  width: 30px;
+  height: 30px;
+  top: 80%;
+  left: 35%;
+  animation: wave 10s linear 1s infinite;
+}
+
+.wave:nth-child(9) {
+  width: 50px;
+  height: 50px;
+  top: 35%;
+  left: 65%;
+  animation: wave 5s linear 1s infinite;
+}
+
+.wave:nth-child(10) {
+  width: 40px;
+  height: 40px;
+  top: 10%;
+  left: 80%;
+  background-color: var(--color-gold);
+  animation: wave 2s linear 1s infinite;
+}
+
+@keyframes wave {
+  from {
+    top: -30%;
+  }
+  50% {
+    top: 100%;
+  }
+  to {
+    top: -30%;
+  }
 }
 
 .modal {
@@ -137,7 +252,7 @@ ul {
 .nav-list {
   display: flex;
   margin-left: auto;
-  margin-right: 30px;
+  margin-right: 37px;
 }
 
 .nav-item {
@@ -146,7 +261,7 @@ ul {
 }
 
 .nav-item:not(:last-child) {
-  margin-right: 31px;
+  margin-right: 32px;
 }
 
 .nav-link:hover {
@@ -154,16 +269,48 @@ ul {
   transition: 0.3s;
 }
 
-.language {
+.languages {
   display: flex;
-  gap: 10px;
+  gap: 13px;
+  margin-right: 40px;
   font-size: var(--font3);
   line-height: 54px;
-  color: var(--color-white);
+  color: var(--color-hover);
 }
 
-.language-active {
+.language {
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.language:hover {
   color: var(--color-gold);
+  transition: 0.3s;
+}
+
+.languages .active {
+  color: var(--color-gold);
+}
+
+.theme {
+  width: 41px;
+  height: 40px;
+  background-color: transparent;
+  background-image: url('./assets/svg/sun.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.theme:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+  transition: 0.3s;
 }
 
 /*Hero*/
@@ -177,7 +324,7 @@ ul {
 
 .main-title {
   margin: 0 0 10px;
-  color: var(--color-white);
+  color: #fff;
   font-family: 'Merriweather', serif;
   font-size: var(--font1);
   line-height: 120px;
@@ -186,7 +333,7 @@ ul {
 .hero-text {
   width: 38%;
   margin: 0 0 24px;
-  color: var(--color-white);
+  color: var(--color-hover);
   font-size: var(--font3);
   line-height: 40px;
 }
@@ -230,7 +377,7 @@ ul {
 
 .skills-subtitle {
   margin: 0 0 20px;
-  color: var(--color-white);
+  color: var(--color-hover);
   font-size: var(--font3);
   font-weight: 700;
   line-height: 40px;
@@ -241,7 +388,7 @@ ul {
   width: 90%;
   margin: 0 auto;
   padding: 0 5px;
-  color: var(--color-white);
+  color: var(--color-hover);
   font-size: var(--font4);
   font-weight: 400;
   line-height: 36px;
@@ -271,6 +418,37 @@ ul {
 
 .portfolio-item {
   margin-bottom: -4px;
+}
+
+.portfolio-btn {
+  width: 220px;
+  padding: 6px 0;
+  color: var(--color-gold);
+  font-family: inherit;
+  font-size: var(--font3);
+  line-height: 40px;
+  background-color: var(--color-body);
+  border: 2px solid var(--color-gold);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.portfolio-btn:hover {
+  color: var(--color-hover);
+  transition: 0.3s;
+}
+
+.portfolio-btns .active {
+  width: 220px;
+  padding: 6px 0;
+  font-family: inherit;
+  font-size: var(--font3);
+  line-height: 40px;
+  color: var(--color-text);
+  background-color: var(--color-gold);
+  border: 2px solid var(--color-gold);
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 
@@ -340,7 +518,7 @@ ul {
 
 .price-subtitle {
   margin: 0 0 20px;
-  color: var(--color-white);
+  color: var(--color-hover);
   font-family: 'Merriweather', serif;
   font-size: 28px;
   line-height: 56px;
@@ -362,7 +540,7 @@ ul {
   align-items: center;
   gap: 16px;
   margin: 0 auto 45px;
-  color: var(--color-white);
+  color: var(--color-hover);
 }
 
 /*Contacts*/
@@ -431,7 +609,7 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--color-white);
+  color: var(--color-hover);
 }
 
 .copyrights {
@@ -557,9 +735,13 @@ textarea {
     top: 0;
     right: -620px;
     padding: 115px 127px;
-    background-color: var(--color-black);
+    background-color: var(--color-body);
     z-index: 150;
     transition: 0.5s
+  }
+
+  .light-theme .nav {
+    padding: 115px 121px;
   }
 
   .nav-list {
@@ -567,9 +749,18 @@ textarea {
     gap: 16px;
   }
 
+  .light-theme .nav-list {
+    gap: 23px;
+  } 
+
   .nav-link {
     font-size: 35px;
     line-height: 73px;
+  }
+
+  .light-theme .nav-link {
+    font-family: 'Merriweather', serif;
+    font-size: 40px;
   }
 
   .open {
@@ -584,7 +775,7 @@ textarea {
     justify-content: space-between;
     width: 50px;
     height: 28px;
-    margin-left: 20px;
+    margin-left: 30px;
     margin-right: 5px;
     padding: 0;
     border: 0;
@@ -597,7 +788,7 @@ textarea {
     display: block;
     width: 100%;
     height: 3px;
-    background-color: #fff;
+    background-color: var(--color-text);
     transition: 0.5s;
   }
 
@@ -624,8 +815,13 @@ textarea {
     transition: 0.5s;
   }
 
-  .language span {
-    margin-left: 10px;
+  .light-theme .close {
+    margin-right: 13px;
+  }
+
+  .languages {
+    gap: 12px;
+    margin-right: 34px;
   }
 
   /*Hero*/
@@ -798,6 +994,24 @@ textarea {
   .portfolio-item {
     width: 100%;
   }
+
+  .header-logo { 
+    width: 40px;
+  }
+
+  .languages {
+    margin-right: 15px;
+  }
+
+  .theme { 
+    width: 30px;
+  }
+
+  .menu-burger {
+    margin-left: 15px;
+  }
+
+
 }
 
 @media (max-width: 375px) {
@@ -825,4 +1039,115 @@ textarea {
     justify-content: center;
     gap: 5px;
   }
+}
+
+/*Light Theme*/
+
+.light-theme .section-title {
+  color: var(--color-text);
+  background-image: linear-gradient(to top, var(--color-body) 39px, var(--color-text) 39px, var(--color-text) 41px, var(--color-body) 41px);
+}
+
+.light-theme .header,
+.light-theme .hero {
+  background-image: url('./assets/img/bg-light.jpg');
+}
+
+.light-theme .header-logo {
+  filter: contrast(0%) brightness(0%);
+  transition: 0.3s;
+}
+
+.light-theme .header-logo:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+  transition: 0.3s;
+}
+
+.light-theme .languages {
+  color: var(--color-text);
+}
+
+.light-theme .languages .active {
+  color: var(--color-body);
+}
+
+.light-theme .theme {
+  background-image: url('./assets/svg/moon.svg');
+  transition: 0.3s;
+}
+
+.light-theme .theme:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+  transition: 0.3s;
+}
+
+.light-theme .main-title {
+  color: #1c1c1c;
+}
+
+.light-theme .hero-btn {
+  padding: 8px 0;
+  background-color: var(--color-body);
+  border: none;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.light-theme .contacts {
+  background-image: url('./assets/img/contacts-light.jpg');
+}
+
+.light-theme .portfolio-btn { 
+  color: var(--color-text);
+  background-color: var(--color-gold);
+  border: 2px solid var(--color-gold);
+}
+
+.light-theme .portfolio-btns .active {
+  color: var(--color-gold);
+  background-color: var(--color-text);
+}
+
+.light-theme .contacts-title { 
+  color: var(--color-text);
+}
+
+.light-theme input,
+.light-theme textarea {
+  color: var(--color-text);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.light-theme ::placeholder {
+  color: var(--color-text);
+}
+
+.light-theme .contacts-btn {
+  padding: 8px 0;
+  background-color: var(--color-body);
+  border: none; 
+}
+
+.light-theme .social-link {
+  filter: contrast(0%) brightness(0%);
+  transition: 0.3s;
+}
+
+.light-theme .social-link:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+  transition: 0.3s;
+}
+
+.light-theme .gold-btn,
+.light-theme .portfolio-btn {
+  padding: 8px 0;
+  border: none;
+}
+
+.light-theme .portfolio-btn:hover  {
+  color: var(--color-gold);
+  background-color: var(--color-text);
+  transition: 0.3s;
 }
