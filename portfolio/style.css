@@ -95,6 +95,11 @@ ul {
   background-color: transparent;
 }
 
+.light-theme .gold-btn:hover  { 
+  background-color: transparent;
+  transition: 0.3s;
+}
+
 .animation {
   position: absolute;
   top: 0;
@@ -111,6 +116,10 @@ ul {
   background-color: var(--color-body);
   border-radius: 50%;
   animation: wave 3s linear 1s infinite;
+}
+
+.light-theme .wave {
+  border: 2px solid var(--color-gold);
 }
 
 .wave:nth-child(2) {
@@ -1136,7 +1145,6 @@ textarea {
   border: none;
 }
 
-.light-theme .gold-btn:hover,
 .light-theme .portfolio-btn:hover  {
   color: var(--color-gold);
   background-color: var(--color-text);
