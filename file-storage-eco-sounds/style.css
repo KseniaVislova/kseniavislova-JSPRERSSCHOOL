@@ -69,6 +69,25 @@ body {
   background-image: url('./assets/img/drozd.jpg');
 }
 
+.audio-btn {
+  width: 100px;
+  height: 100px;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.play-btn {
+  background-image: url('./assets/svg/play.svg');
+}
+
+.pause-btn {
+  background-image: url('./assets/svg/pause.svg');
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
