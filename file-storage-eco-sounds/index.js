@@ -38,7 +38,15 @@ const changeAudio = (event) => {
   playAudio();
 }
 
+const changeClassActive = (event) => {
+  tabs.forEach(tab => {
+    tab.classList.remove('active')
+  })
+  event.target.classList.add('active')
+}
+
 tabs.forEach(tab => {
   tab.addEventListener('click', changeImage);
   tab.addEventListener('click', changeAudio);
+  tab.addEventListener('click', changeClassActive);
 })

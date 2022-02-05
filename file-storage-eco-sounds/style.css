@@ -33,7 +33,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px;
+  padding: 10px;
   background-color: var(--color-body);
 }
 
@@ -71,6 +71,9 @@ body {
   align-items: center;
   justify-self: stretch;
   background-image: url('./assets/img/forest.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .audio-btn {
@@ -96,7 +99,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px;
+  padding: 10px;
   background-color: var(--color-body);
 }
 
