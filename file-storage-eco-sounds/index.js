@@ -33,6 +33,12 @@ const changeImage = (event) => {
   main.style.backgroundImage = `url('./assets/img/${event.target.dataset.bird}.jpg')`
 }
 
+const changeAudio = (event) => {
+  audio.src = `./assets/audio/${event.target.dataset.bird}.mp3`;
+  playAudio();
+}
+
 tabs.forEach(tab => {
   tab.addEventListener('click', changeImage);
+  tab.addEventListener('click', changeAudio);
 })
