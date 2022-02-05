@@ -1,15 +1,22 @@
 const audio = document.querySelector('audio');
 const playBtn = document.querySelector('.play-btn');
-const pauseBtn = document.querySelector('.pause-btn');
+let isPlay = false;
 
 function playAudio() {
   audio.currentTime = 0;
   audio.play();
+  playBtn.classList.add('pause-btn')
 }
 
 function pauseAudio() {
   audio.pause();
+  playBtn.classList.remove('pause-btn')
 }
 
-playBtn.addEventListener('click', playAudio);
-pauseBtn.addEventListener('click', pauseAudio);
+playBtn.addEventListener('click', () => {
+  if (playBtn.classList.contains('pause-btn')) {
+    pauseAudio();
+  } else {
+    playAudio();
+  }
+});
