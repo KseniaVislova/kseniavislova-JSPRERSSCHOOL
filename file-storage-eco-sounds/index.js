@@ -5,16 +5,18 @@ let isPlay = false;
 function playAudio() {
   audio.currentTime = 0;
   audio.play();
+  isPlay = true;
   playBtn.classList.add('pause-btn')
 }
 
 function pauseAudio() {
   audio.pause();
+  isPlay = false;
   playBtn.classList.remove('pause-btn')
 }
 
 playBtn.addEventListener('click', () => {
-  if (playBtn.classList.contains('pause-btn')) {
+  if (isPlay) {
     pauseAudio();
   } else {
     playAudio();
