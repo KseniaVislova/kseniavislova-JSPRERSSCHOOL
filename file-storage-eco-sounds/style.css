@@ -47,6 +47,11 @@ body {
   transition: 1s;
 }
 
+img.active {
+  filter: drop-shadow(0 0 40px var(--color-text)) contrast(0%);
+  transition: 1s;
+}
+
 .birds-list {
   display: flex;
   justify-content: space-between;
