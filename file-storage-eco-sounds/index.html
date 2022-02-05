@@ -16,18 +16,17 @@
 <body>
   <div class="wrapper">
     <header class="header">
-      <img src="./assets/svg/logo.svg" alt="logo" class="logo">
+      <img src="./assets/svg/logo.svg" alt="logo" class="logo tab" data-bird="forest">
       <ul class="birds-list">
-        <li class="birds-item"><button class="tab active">Дрозд</button></li>
-        <li class="birds-item"><button class="tab">Лес</button></li>
-        <li class="birds-item"><button class="tab">Жаворонок</button></li>
-        <li class="birds-item"><button class="tab">Славка</button></li>
-        <li class="birds-item"><button class="tab">Соловей</button></li>
-        <li class="birds-item"><button class="tab">Заринка</button></li>
+        <li class="birds-item"><button class="tab active" data-bird="drozd">Дрозд</button></li>
+        <li class="birds-item"><button class="tab" data-bird="javoronok">Жаворонок</button></li>
+        <li class="birds-item"><button class="tab" data-bird="slavka">Славка</button></li>
+        <li class="birds-item"><button class="tab" data-bird="solovey">Соловей</button></li>
+        <li class="birds-item"><button class="tab" data-bird="zarynka">Заринка</button></li>
       </ul>
     </header>
     <main class="main">
-      <audio src="./assets/audio/drozd.mp3"></audio>
+      <audio src="./assets/audio/forest.mp3"></audio>
       <button class="audio-btn play-btn"></button>
     </main>
     <footer class="footer">

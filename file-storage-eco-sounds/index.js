@@ -1,6 +1,10 @@
 const audio = document.querySelector('audio');
 const playBtn = document.querySelector('.play-btn');
+const main = document.querySelector('.main');
+const tabs = document.querySelectorAll('.tab');
 let isPlay = false;
+
+// Play or Pause
 
 function playAudio() {
   audio.currentTime = 0;
@@ -22,3 +26,13 @@ playBtn.addEventListener('click', () => {
     playAudio();
   }
 });
+
+//Switcher
+
+const changeImage = (event) => {
+  main.style.backgroundImage = `url('./assets/img/${event.target.dataset.bird}.jpg')`
+}
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', changeImage);
+})
