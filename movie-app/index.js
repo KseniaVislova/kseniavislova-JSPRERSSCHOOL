@@ -3,6 +3,8 @@ const url = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc
 const urlImg = 'https://image.tmdb.org/t/p/w1280'
 main = document.querySelector('.main');
 
+//Получение данных
+
 const showData = (data) => {
   data.results.forEach(el => {
   const item = `<div class="item">
@@ -18,8 +20,44 @@ const showData = (data) => {
 async function getData() {
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data);
   showData(data)
 }
 getData();
+
+//Поиск
+
+const form = document.querySelector('#form');
+const search = document.querySelector('#search');
+let valueInput = '';
+
+const clearHTML = () => {
+  main.innerHTML = ''
+}
+
+
+form.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault()
+    searchData(search.value)
+  }
+})
+
+async function searchData(value) {
+  console.log(value)
+  valueInput = value
+  const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${value}&api_key=b17c44228beb2d9ced34a96df9fccd68`)
+  const data = await res.json();
+  console.log(data);
+  clearHTML()
+  showData(data)
+}
+
+//Focus 
+function setFocus(){
+  search.focus();
+}
+
+setFocus()
+
+
 
