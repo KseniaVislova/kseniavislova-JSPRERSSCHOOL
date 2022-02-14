@@ -6,6 +6,19 @@ html {
   scroll-behavior: smooth; 
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f64c72;
+  border-radius: 10px;
+}
+
 body {
   margin: 0;
   padding: 0;
