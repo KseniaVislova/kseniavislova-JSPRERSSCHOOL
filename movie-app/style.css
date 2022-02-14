@@ -104,6 +104,7 @@ body {
 }
 
 .item-title {
+  display: inline-block;
   color: #f64c72;
   text-align: center;
   text-transform: uppercase;
@@ -158,4 +159,47 @@ h4 {
 
 .green {
   color: rgb(56, 188, 29);
+}
+
+.date {
+  text-transform: uppercase;
+}
+
+.date span {
+  display: block;
+  padding: 5px;
+  background-color: #24828077;
+  border-radius: 5px;
+  text-align: center;
+  color: #f64c72;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.copyrights {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.rs {
+  display: block;
+  padding: 45px;
+  background-image: url('./assets/svg/rss.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }

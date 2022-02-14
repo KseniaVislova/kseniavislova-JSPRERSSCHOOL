@@ -12,7 +12,7 @@ const showData = (data) => {
     <h3 class="item-title">${el.original_title}</h3>
     <div class="item-info">
       <span class="overage">${el.vote_average}</span>
-      <span>Release date: ${el.release_date}</span>
+      <span class="date">Release date: <span>${el.release_date}</span></span>
     </div>
     <div class="item-overview">
       <h4>Overview</h4>
