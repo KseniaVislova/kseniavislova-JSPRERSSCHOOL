@@ -124,9 +124,11 @@ body {
   position: absolute;
   left: 0;
   bottom: -100%;
+  max-height: 100%;
   padding: 20px;
   background-color: #242582;
   transition: all 1s ease-in-out;
+  overflow-y: auto;
 }
 
 .item:hover .item-overview {
