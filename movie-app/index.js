@@ -9,9 +9,15 @@ const showData = (data) => {
   data.results.forEach(el => {
   const item = `<div class="item">
     <img src=${urlImg + el.poster_path}>
-    <h3>${el.original_title}</h3>
-    <span>${el.vote_average}</span>
-    <div>${el.overview}</div>
+    <h3 class="item-title">${el.original_title}</h3>
+    <div class="item-info">
+      <span>IMDb: ${el.vote_average}</span>
+      <span>Release date: ${el.release_date}</span>
+    </div>
+    <div class="item-overview">
+      <h4>Overview</h4>
+      <p>${el.overview}</p>
+    </div>
   </div>`;
   main.insertAdjacentHTML('beforeend', item);
   })
@@ -70,7 +76,4 @@ const clearValue = (e) => {
 btn.addEventListener('click', (e) => {
   e.preventDefault();
   clearValue();
-})
-
-
-
+}) 
