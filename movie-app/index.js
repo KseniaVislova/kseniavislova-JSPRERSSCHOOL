@@ -59,5 +59,18 @@ function setFocus(){
 
 setFocus()
 
+//Удаление поискового запроса из строки поиска
+
+const btn = document.querySelector('.btn-close');
+
+const clearValue = (e) => {
+  search.value = '';
+}
+
+btn.addEventListener('click', (e) => {
+  e.preventDefault();
+  clearValue();
+})
+
 
 
