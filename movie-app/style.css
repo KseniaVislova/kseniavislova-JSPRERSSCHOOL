@@ -29,9 +29,9 @@ body {
 }
 
 .logo {
-  font-family: 'Nova Mono', monospace;
   font-size: 40px;
   color: #f64c72;
+  text-transform: uppercase;
   text-shadow: 0 0 5px #fff,
                 0 0 10px #fff,
                 0 0 20px #fff,
@@ -40,6 +40,32 @@ body {
                 0 0 90px #0ff,
                 0 0 100px #0ff,
                 0 0 150px #0ff;
+}
+
+.tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 25px;
+  font-weight: 700;
+  text-transform: uppercase;
+  list-style: none;
+}
+
+.tab-item {
+  display: block;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #0ff;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #f64c72;
 }
 
 .form {

@@ -84,6 +84,10 @@ const clearValue = (e) => {
 
 types.forEach(item => {
   item.addEventListener('click', (e) => {
+    types.forEach(i => {
+      i.classList.remove('active')
+    })
+    item.classList.add('active')
     type = e.target.dataset.type;
     url = `https://api.themoviedb.org/3/discover/${type}?sort_by=popularity.desc&api_key=b17c44228beb2d9ced34a96df9fccd68`;
     clearHTML();
