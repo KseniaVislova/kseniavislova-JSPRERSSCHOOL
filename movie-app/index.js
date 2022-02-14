@@ -1,26 +1,50 @@
 const key = 'b17c44228beb2d9ced34a96df9fccd68';
-const url = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=b17c44228beb2d9ced34a96df9fccd68';
+let type = 'movie'
+let url = `https://api.themoviedb.org/3/discover/${type}?sort_by=popularity.desc&api_key=b17c44228beb2d9ced34a96df9fccd68`;
 const urlImg = 'https://image.tmdb.org/t/p/w1280'
 main = document.querySelector('.main');
+const types = document.querySelectorAll('.tab-item')
 
 //Получение данных
 
 const showData = (data) => {
-  data.results.forEach(el => {
-  const item = `<div class="item">
-    <img src=${urlImg + el.poster_path}>
-    <h3 class="item-title">${el.original_title}</h3>
-    <div class="item-info">
-      <span class="overage">${el.vote_average}</span>
-      <span class="date">Release date: <span>${el.release_date}</span></span>
-    </div>
-    <div class="item-overview">
-      <h4>Overview</h4>
-      <p>${el.overview}</p>
-    </div>
-  </div>`;
-  main.insertAdjacentHTML('beforeend', item);
-  })
+  if (data.results === undefined) {
+    console.log('The resource you requested could not be found.')
+    const item = `<div>The resource you requested could not be found.</div>`
+    main.insertAdjacentHTML('beforeend', item);
+  } else {
+    data.results.forEach(el => {
+      if (type === 'movie') {
+        const item = `<div class="item">
+        <img src=${urlImg + el.poster_path}>
+        <h3 class="item-title">${el.original_title}</h3>
+        <div class="item-info">
+          <span class="overage">${el.vote_average}</span>
+          <span class="date">Release date: <span>${el.release_date}</span></span>
+        </div>
+        <div class="item-overview">
+          <h4>Overview</h4>
+          <p>${el.overview}</p>
+        </div>
+      </div>`;
+      main.insertAdjacentHTML('beforeend', item);
+      } else if (type === 'tv') {
+        const item = `<div class="item">
+        <img src=${urlImg + el.poster_path}>
+        <h3 class="item-title">${el.name}</h3>
+        <div class="item-info">
+          <span class="overage">${el.vote_average}</span>
+          <span class="date">First air date: <span>${el.first_air_date}</span></span>
+        </div>
+        <div class="item-overview">
+          <h4>Overview</h4>
+          <p>${el.overview}</p>
+        </div>
+      </div>`;
+      main.insertAdjacentHTML('beforeend', item);
+      }
+      })
+  }
 }
 
 const chooseColorForRate = () => {
@@ -37,12 +61,36 @@ const chooseColorForRate = () => {
 
 
 async function getData() {
-  const res = await fetch(url);
-  const data = await res.json();
-  showData(data)
-  chooseColorForRate();
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    showData(data)
+    chooseColorForRate();
+  } catch {
+    console.log('The resource you requested could not be found.')
+    const item = `<div>The resource you requested could not be found.</div>`
+    main.insertAdjacentHTML('beforeend', item);
+  }
 }
 getData();
+
+const clearHTML = () => {
+  main.innerHTML = ''
+}
+
+const clearValue = (e) => {
+  search.value = '';
+}
+
+types.forEach(item => {
+  item.addEventListener('click', (e) => {
+    type = e.target.dataset.type;
+    url = `https://api.themoviedb.org/3/discover/${type}?sort_by=popularity.desc&api_key=b17c44228beb2d9ced34a96df9fccd68`;
+    clearHTML();
+    clearValue();
+    getData();
+  })
+})
 
 //Поиск
 
@@ -50,9 +98,6 @@ const form = document.querySelector('#form');
 const search = document.querySelector('#search');
 let valueInput = '';
 
-const clearHTML = () => {
-  main.innerHTML = ''
-}
 
 
 form.addEventListener('keypress', (e) => {
@@ -63,9 +108,9 @@ form.addEventListener('keypress', (e) => {
 })
 
 async function searchData(value) {
-  console.log(value)
   valueInput = value
-  const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${value}&api_key=b17c44228beb2d9ced34a96df9fccd68`)
+  console.log(`https://api.themoviedb.org/3/search/${type}?query=${value}&api_key=b17c44228beb2d9ced34a96df9fccd68`)
+  const res = await fetch(`https://api.themoviedb.org/3/search/${type}?query=${value}&api_key=b17c44228beb2d9ced34a96df9fccd68`)
   const data = await res.json();
   console.log(data);
   clearHTML();
@@ -83,10 +128,6 @@ setFocus()
 //Удаление поискового запроса из строки поиска
 
 const btn = document.querySelector('.btn-close');
-
-const clearValue = (e) => {
-  search.value = '';
-}
 
 btn.addEventListener('click', (e) => {
   e.preventDefault();
