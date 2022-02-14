@@ -11,7 +11,7 @@ const showData = (data) => {
     <img src=${urlImg + el.poster_path}>
     <h3 class="item-title">${el.original_title}</h3>
     <div class="item-info">
-      <span>IMDb: ${el.vote_average}</span>
+      <span class="overage">${el.vote_average}</span>
       <span>Release date: ${el.release_date}</span>
     </div>
     <div class="item-overview">
@@ -23,10 +23,24 @@ const showData = (data) => {
   })
 }
 
+const chooseColorForRate = () => {
+  document.querySelectorAll('.overage').forEach(item => {
+    if (item.textContent < 4) {
+      item.classList.add('red')
+    } else if (item.textContent >= 7) {
+      item.classList.add('green')
+    } else {
+      item.classList.add('yellow')
+    }
+  })
+}
+
+
 async function getData() {
   const res = await fetch(url);
   const data = await res.json();
   showData(data)
+  chooseColorForRate();
 }
 getData();
 
@@ -54,8 +68,9 @@ async function searchData(value) {
   const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${value}&api_key=b17c44228beb2d9ced34a96df9fccd68`)
   const data = await res.json();
   console.log(data);
-  clearHTML()
-  showData(data)
+  clearHTML();
+  showData(data);
+  chooseColorForRate();
 }
 
 //Focus 
