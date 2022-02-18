@@ -2,6 +2,7 @@ const board = document.querySelector('.board');
 let squares = [];
 const width = 4;
 
+
 const startNumbers = () => {
   let random = Math.floor(Math.random() * squares.length);
   if (squares[random].innerHTML == 0) {
@@ -22,3 +23,23 @@ const createBoard = () => {
 }
 
 createBoard();
+
+const getRow = (arr, start, end) => {
+  for (let i = start; i <= end; i ++) {
+    if (parseInt(squares[i].innerHTML) > 0) arr.push(parseInt(squares[i].innerHTML))
+  }
+}
+
+const moveLeft = () => {
+  for (let i = 0; i < 16; i += 4) {
+    let row = [];
+    getRow(row, i, i + 3);
+    let missing = 4 - row.length;
+    for (let j = 0; j < missing; j++) {
+      row.push(0);
+    }
+    for (let j = 0; j < 4; j++) {
+      squares[i + j].innerHTML = row[j];
+    }
+  }
+}
