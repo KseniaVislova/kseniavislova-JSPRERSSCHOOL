@@ -106,3 +106,14 @@ const sumRow = () => {
   }
   startNumbers()
 }
+
+const sumColumn = () => {
+  for(let i = 0; i < 12; i++) {
+    if(squares[i].innerHTML === squares[i + 4].innerHTML) {
+      let sum = parseInt(squares[i].innerHTML) + parseInt(squares[i + 4].innerHTML);
+      squares[i].innerHTML = sum;
+      squares[i + 4].innerHTML = 0;
+    }
+  }
+  startNumbers()
+}
