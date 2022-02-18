@@ -95,3 +95,14 @@ const moveDown = () => {
     }
   }
 }
+
+const sumRow = () => {
+  for(let i = 0; i < 15; i++) {
+    if(squares[i].innerHTML === squares[i + 1].innerHTML) {
+      let sum = parseInt(squares[i].innerHTML) + parseInt(squares[i + 1].innerHTML);
+      squares[i].innerHTML = sum;
+      squares[i + 1].innerHTML = 0;
+    }
+  }
+  startNumbers()
+}
