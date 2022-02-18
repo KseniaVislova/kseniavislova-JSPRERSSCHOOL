@@ -30,6 +30,12 @@ const getRow = (arr, start, end) => {
   }
 }
 
+const getColumn = (arr, start) => {
+  for (let i = start; i <= 15; i += 4) {
+    if (parseInt(squares[i].innerHTML) > 0) arr.push(parseInt(squares[i].innerHTML))
+  }
+}
+
 const moveLeft = () => {
   for (let i = 0; i < 16; i += 4) {
     let row = [];
@@ -54,6 +60,38 @@ const moveRight = () => {
     }
     for (let j = 0; j < 4; j++) {
       squares[i + j].innerHTML = row[j];
+    }
+  }
+}
+
+const moveUp = () => {
+  for (let i = 0; i < 4; i += 1) {
+    let column = [];
+    getColumn(column, i);
+    let missing = 4 - column.length;
+    for (let j = 0; j < missing; j++) {
+      column.push(0);
+    }
+    let h = 0;
+    for (let j = 0; j < 16; j += 4) {
+      squares[i + j].innerHTML = column[h];
+      h += 1;
+    }
+  }
+}
+
+const moveDown = () => {
+  for (let i = 0; i < 4; i += 1) {
+    let column = [];
+    getColumn(column, i);
+    let missing = 4 - column.length;
+    for (let j = 0; j < missing; j++) {
+      column.unshift(0);
+    }
+    let h = 0;
+    for (let j = 0; j < 16; j += 4) {
+      squares[i + j].innerHTML = column[h];
+      h += 1;
     }
   }
 }
