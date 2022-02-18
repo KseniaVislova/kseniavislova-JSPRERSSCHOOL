@@ -43,3 +43,17 @@ const moveLeft = () => {
     }
   }
 }
+
+const moveRight = () => {
+  for (let i = 0; i < 16; i += 4) {
+    let row = [];
+    getRow(row, i, i + 3);
+    let missing = 4 - row.length;
+    for (let j = 0; j < missing; j++) {
+      row.unshift(0);
+    }
+    for (let j = 0; j < 4; j++) {
+      squares[i + j].innerHTML = row[j];
+    }
+  }
+}
