@@ -12,7 +12,7 @@ const startNumbers = () => {
 }
 
 const createBoard = () => {
-  for (let i = 0; i <= width * width; i++) {
+  for (let i = 0; i < width * width; i++) {
     const item = `<div class="square">0</div>`;
     board.insertAdjacentHTML('beforeend', item);
   }
