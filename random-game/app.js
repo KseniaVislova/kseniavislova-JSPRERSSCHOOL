@@ -1,5 +1,6 @@
 const board = document.querySelector('.board');
 let squares = [];
+let squaresPrev = [];
 const width = 4;
 let scoreContainer = document.querySelector('.score');
 let movesContainer = document.querySelector('.moves');
@@ -20,7 +21,7 @@ const startNumbers = () => {
 
 const createBoard = () => {
   for (let i = 0; i < width * width; i++) {
-    const item = `<div class="square">0</div>`;
+    const item = `<div class="square n-0">0</div>`;
     board.insertAdjacentHTML('beforeend', item);
   }
   squares = document.querySelectorAll('.square');
@@ -126,17 +127,25 @@ const moveDown = () => {
   }
 }
 
+const savePrev = () => {
+  squaresPrev = squares;
+}
+
 const goTo = (func, funcDirection) => {
+  savePrev();
   func();
   funcDirection();
   func();
-  startNumbers();
   moves += 1;
   movesContainer.innerHTML = moves;
   if (score >= 2048) {
     isWinning = true;
     resultContainer.innerHTML = "Вы победили!"
   }
+  console.log(squares)
+  console.log(squaresPrev)
+  console.log((squares === squaresPrev))
+  startNumbers();
 }
 
 const getKey = (e) => {
