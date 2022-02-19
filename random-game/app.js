@@ -3,6 +3,8 @@ let squares = [];
 const width = 4;
 let scoreContainer = document.querySelector('.score');
 let score = 0;
+let isWinning = false;
+const resultContainer = document.querySelector('.result');
 
 
 const startNumbers = () => {
@@ -127,6 +129,10 @@ const goTo = (func, funcDirection) => {
   funcDirection();
   func();
   startNumbers();
+  if (score >= 2048) {
+    isWinning = true;
+    resultContainer.innerHTML = "Вы победили!"
+  }
 }
 
 const getKey = (e) => {
