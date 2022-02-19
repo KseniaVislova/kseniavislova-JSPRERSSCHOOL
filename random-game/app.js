@@ -2,7 +2,9 @@ const board = document.querySelector('.board');
 let squares = [];
 const width = 4;
 let scoreContainer = document.querySelector('.score');
+let movesContainer = document.querySelector('.moves');
 let score = 0;
+let moves = 0;
 let isWinning = false;
 const resultContainer = document.querySelector('.result');
 
@@ -129,6 +131,8 @@ const goTo = (func, funcDirection) => {
   funcDirection();
   func();
   startNumbers();
+  moves += 1;
+  movesContainer.innerHTML = moves;
   if (score >= 2048) {
     isWinning = true;
     resultContainer.innerHTML = "Вы победили!"
