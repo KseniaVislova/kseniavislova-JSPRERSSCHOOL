@@ -116,39 +116,18 @@ const moveDown = () => {
   }
 }
 
-const goToLeft = () => {
-  moveLeft();
-  sumRow();
-  moveLeft();
-  startNumbers();
-}
-
-const goToRight = () => {
-  moveRight();
-  sumRow();
-  moveRight();
-  startNumbers();
-}
-
-const goToUp = () => {
-  moveUp();
-  sumColumn();
-  moveUp();
-  startNumbers();
-}
-
-const goToDown = () => {
-  moveDown();
-  sumColumn();
-  moveDown();
+const goTo = (func, funcDirection) => {
+  func();
+  funcDirection();
+  func();
   startNumbers();
 }
 
 const getKey = (e) => {
-  if(e.key === 'ArrowDown') goToDown();
-  if(e.key === 'ArrowUp') goToUp();
-  if(e.key === 'ArrowLeft') goToLeft();
-  if(e.key === 'ArrowRight') goToRight();
+  if(e.key === 'ArrowDown') goTo(moveDown, sumColumn);
+  if(e.key === 'ArrowUp') goTo(moveUp, sumColumn);
+  if(e.key === 'ArrowLeft') goTo(moveLeft, sumRow);
+  if(e.key === 'ArrowRight') goTo(moveRight, sumRow);
 }
 
 document.addEventListener('keyup', getKey)
