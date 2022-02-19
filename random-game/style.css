@@ -36,3 +36,80 @@ body {
   box-shadow: 0 0 5px #0ff,
                 0 0 10px #fff;
 }
+
+.n-2 {
+  background-color: rgba(106, 255, 0, 0.2);
+  border-color: rgb(106, 255, 0);
+  box-shadow: 0 0 5px rgb(106, 255, 0),
+                0 0 10px #fff;
+}
+
+.n-4 {
+  background-color: rgba(47, 13, 107, 0.2);
+  border-color: rgb(47, 13, 107);
+  box-shadow: 0 0 5px rgb(47, 13, 107),
+                0 0 10px #fff;
+}
+
+.n-8 {
+  background-color: rgba(0, 102, 255, 0.2);
+  border-color: rgb(0, 102, 255);
+  box-shadow: 0 0 5px rgb(0, 102, 255),
+                0 0 10px #fff;
+}
+
+.n-16 {
+  background-color: rgba(255, 174, 0, 0.2);
+  border-color: rgb(255, 174, 0);
+  box-shadow: 0 0 5px rgb(255, 174, 0),
+                0 0 10px #fff;
+}
+
+.n-32 {
+  background-color: rgba(107, 13, 13, 0.2);
+  border-color: rgb(107, 13, 13);
+  box-shadow: 0 0 5px rgb(107, 13, 13),
+                0 0 10px #fff;
+}
+
+.n-64 {
+  background-color: rgba(73, 156, 70, 0.2);
+  border-color: rgb(73, 156, 70);
+  box-shadow: 0 0 5px rgb(73, 156, 70),
+                0 0 10px #fff;
+}
+
+.n-128 {
+  background-color: rgba(255, 55, 0, 0.2);
+  border-color: rgb(255, 55, 0);
+  box-shadow: 0 0 5px rgb(255, 55, 0),
+                0 0 10px #fff;
+}
+
+.n-256 {
+  background-color: rgba(109, 90, 142, 0.2);
+  border-color: rgb(109, 90, 142);
+  box-shadow: 0 0 5px rgb(109, 90, 142),
+                0 0 10px #fff;
+}
+
+.n-512 {
+  background-color: rgba(204, 181, 11, 0.2);
+  border-color: rgb(204, 181, 11);
+  box-shadow: 0 0 5px rgb(204, 181, 11),
+                0 0 10px #fff;
+}
+
+.n-1024 {
+  background-color: rgba(179, 0, 255, 0.2);
+  border-color: rgb(179, 0, 255);
+  box-shadow: 0 0 5px rgb(179, 0, 255),
+                0 0 10px #fff;
+}
+
+.n-2048 {
+  background-color: rgba(215, 47, 58, 0.2);
+  border-color: rgb(215, 47, 58);
+  box-shadow: 0 0 5px rgb(215, 47, 58),
+                0 0 10px #fff;
+}

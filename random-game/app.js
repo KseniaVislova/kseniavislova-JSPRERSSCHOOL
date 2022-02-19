@@ -9,6 +9,28 @@ let moves = 0;
 let isWinning = false;
 const resultContainer = document.querySelector('.result');
 
+const createClasses = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    if(arr[i].innerHTML == 0) arr[i].classList.add('n-0');
+    if(arr[i].innerHTML == 2) arr[i].classList.add('n-2');
+    if(arr[i].innerHTML == 4) arr[i].classList.add('n-4');
+    if(arr[i].innerHTML == 8) arr[i].classList.add('n-8');
+    if(arr[i].innerHTML == 16) arr[i].classList.add('n-16');
+    if(arr[i].innerHTML == 32) arr[i].classList.add('n-32');
+    if(arr[i].innerHTML == 64) arr[i].classList.add('n-64');
+    if(arr[i].innerHTML == 128) arr[i].classList.add('n-128');
+    if(arr[i].innerHTML == 256) arr[i].classList.add('n-256');
+    if(arr[i].innerHTML == 512) arr[i].classList.add('n-512');
+    if(arr[i].innerHTML == 1024) arr[i].classList.add('n-1024');
+    if(arr[i].innerHTML == 2048) arr[i].classList.add('n-2048');
+  }
+}
+
+const removeClasses = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    arr[i].classList.remove(`n-${parseInt(arr[i].innerHTML)}`)
+  }
+}
 
 const startNumbers = () => {
   let random = Math.floor(Math.random() * squares.length);
@@ -27,13 +49,14 @@ const createBoard = () => {
   squares = document.querySelectorAll('.square');
   startNumbers();
   startNumbers();
+  createClasses(squares);
 }
 
 createBoard();
 
 const getRow = (arr, start, end) => {
   for (let i = start; i <= end; i ++) {
-    if (parseInt(squares[i].innerHTML) > 0) arr.push(parseInt(squares[i].innerHTML))
+    if (parseInt(squares[i].innerHTML) > 0) arr.push(parseInt(squares[i].innerHTML));
   }
 }
 
@@ -133,19 +156,18 @@ const savePrev = () => {
 
 const goTo = (func, funcDirection) => {
   savePrev();
+  removeClasses(squares);
   func();
   funcDirection();
   func();
+  startNumbers();
+  createClasses(squares);
   moves += 1;
   movesContainer.innerHTML = moves;
   if (score >= 2048) {
     isWinning = true;
     resultContainer.innerHTML = "Вы победили!"
   }
-  console.log(squares)
-  console.log(squaresPrev)
-  console.log((squares === squaresPrev))
-  startNumbers();
 }
 
 const getKey = (e) => {
