@@ -36,6 +36,26 @@ const getColumn = (arr, start) => {
   }
 }
 
+const sumRow = () => {
+  for(let i = 0; i < 15; i++) {
+    if(squares[i].innerHTML === squares[i + 1].innerHTML) {
+      let sum = parseInt(squares[i].innerHTML) + parseInt(squares[i + 1].innerHTML);
+      squares[i].innerHTML = sum;
+      squares[i + 1].innerHTML = 0;
+    }
+  }
+}
+
+const sumColumn = () => {
+  for(let i = 0; i < 12; i++) {
+    if(squares[i].innerHTML === squares[i + 4].innerHTML) {
+      let sum = parseInt(squares[i].innerHTML) + parseInt(squares[i + 4].innerHTML);
+      squares[i].innerHTML = sum;
+      squares[i + 4].innerHTML = 0;
+    }
+  }
+}
+
 const moveLeft = () => {
   for (let i = 0; i < 16; i += 4) {
     let row = [];
@@ -96,24 +116,30 @@ const moveDown = () => {
   }
 }
 
-const sumRow = () => {
-  for(let i = 0; i < 15; i++) {
-    if(squares[i].innerHTML === squares[i + 1].innerHTML) {
-      let sum = parseInt(squares[i].innerHTML) + parseInt(squares[i + 1].innerHTML);
-      squares[i].innerHTML = sum;
-      squares[i + 1].innerHTML = 0;
-    }
-  }
-  startNumbers()
+const goToLeft = () => {
+  moveLeft();
+  sumRow();
+  moveLeft();
+  startNumbers();
 }
 
-const sumColumn = () => {
-  for(let i = 0; i < 12; i++) {
-    if(squares[i].innerHTML === squares[i + 4].innerHTML) {
-      let sum = parseInt(squares[i].innerHTML) + parseInt(squares[i + 4].innerHTML);
-      squares[i].innerHTML = sum;
-      squares[i + 4].innerHTML = 0;
-    }
-  }
-  startNumbers()
+const goToRight = () => {
+  moveRight();
+  sumRow();
+  moveRight();
+  startNumbers();
+}
+
+const goToUp = () => {
+  moveUp();
+  sumColumn();
+  moveUp();
+  startNumbers();
+}
+
+const goToDown = () => {
+  moveDown();
+  sumColumn();
+  moveDown();
+  startNumbers();
 }
