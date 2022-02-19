@@ -1,11 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; 
+}
+
 .board {
   display: flex;
   flex-wrap: wrap;
-  width: 400px;
+  gap: 10px;
+  width: 430px;
 }
 
 .square {
-  width: 98px;
-  height: 98px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  font-size: 40px;
+  font-weight: 700;
   border: 1px solid #000;
 }
