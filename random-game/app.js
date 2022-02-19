@@ -11,18 +11,7 @@ const resultContainer = document.querySelector('.result');
 
 const createClasses = (arr) => {
   for (let i = 0; i < arr.length; i++) {
-    if(arr[i].innerHTML == 0) arr[i].classList.add('n-0');
-    if(arr[i].innerHTML == 2) arr[i].classList.add('n-2');
-    if(arr[i].innerHTML == 4) arr[i].classList.add('n-4');
-    if(arr[i].innerHTML == 8) arr[i].classList.add('n-8');
-    if(arr[i].innerHTML == 16) arr[i].classList.add('n-16');
-    if(arr[i].innerHTML == 32) arr[i].classList.add('n-32');
-    if(arr[i].innerHTML == 64) arr[i].classList.add('n-64');
-    if(arr[i].innerHTML == 128) arr[i].classList.add('n-128');
-    if(arr[i].innerHTML == 256) arr[i].classList.add('n-256');
-    if(arr[i].innerHTML == 512) arr[i].classList.add('n-512');
-    if(arr[i].innerHTML == 1024) arr[i].classList.add('n-1024');
-    if(arr[i].innerHTML == 2048) arr[i].classList.add('n-2048');
+    arr[i].classList.add(`n-${arr[i].innerHTML}`);
   }
 }
 
