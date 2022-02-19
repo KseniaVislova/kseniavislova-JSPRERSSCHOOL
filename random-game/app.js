@@ -1,6 +1,8 @@
 const board = document.querySelector('.board');
 let squares = [];
 const width = 4;
+let scoreContainer = document.querySelector('.score');
+let score = 0;
 
 
 const startNumbers = () => {
@@ -41,6 +43,8 @@ const sumRow = () => {
     if(squares[i].innerHTML === squares[i + 1].innerHTML) {
       let sum = parseInt(squares[i].innerHTML) + parseInt(squares[i + 1].innerHTML);
       squares[i].innerHTML = sum;
+      score += sum;
+      scoreContainer.innerHTML = score;
       squares[i + 1].innerHTML = 0;
     }
   }
@@ -51,6 +55,8 @@ const sumColumn = () => {
     if(squares[i].innerHTML === squares[i + 4].innerHTML) {
       let sum = parseInt(squares[i].innerHTML) + parseInt(squares[i + 4].innerHTML);
       squares[i].innerHTML = sum;
+      score += sum;
+      scoreContainer.innerHTML = score;
       squares[i + 4].innerHTML = 0;
     }
   }
