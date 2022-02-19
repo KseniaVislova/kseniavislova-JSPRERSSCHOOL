@@ -143,3 +143,12 @@ const goToDown = () => {
   moveDown();
   startNumbers();
 }
+
+const getKey = (e) => {
+  if(e.key === 'ArrowDown') goToDown();
+  if(e.key === 'ArrowUp') goToUp();
+  if(e.key === 'ArrowLeft') goToLeft();
+  if(e.key === 'ArrowRight') goToRight();
+}
+
+document.addEventListener('keyup', getKey)
