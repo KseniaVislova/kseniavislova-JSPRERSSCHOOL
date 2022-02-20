@@ -10,7 +10,8 @@ let moves = 0;
 let isWinning = false;
 let isFault = false;
 const resultContainer = document.querySelector('.result');
-const btnPrev = document.querySelector('.before')
+const btnPrev = document.querySelector('.before');
+const btnRestart = document.querySelector('.restart');
 
 const createClasses = (arr) => {
   for (let i = 0; i < arr.length; i++) {
@@ -44,6 +45,7 @@ const startNumbers = () => {
 }
 
 const createBoard = () => {
+  board.innerHTML = '';
   for (let i = 0; i < width * width; i++) {
     const item = `<div class="square n-0">0</div>`;
     board.insertAdjacentHTML('beforeend', item);
@@ -55,6 +57,7 @@ const createBoard = () => {
 }
 
 createBoard();
+btnRestart.addEventListener('click', createBoard);
 
 const getRow = (arr, start, end) => {
   for (let i = start; i <= end; i ++) {
