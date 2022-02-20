@@ -45,6 +45,8 @@ const startNumbers = () => {
 }
 
 const createBoard = () => {
+  score = 0;
+  scoreContainer.innerHTML = score;
   moves = 0;
   movesContainer.innerHTML = moves;
   board.innerHTML = '';
