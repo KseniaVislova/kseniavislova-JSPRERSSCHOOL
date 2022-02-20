@@ -14,7 +14,6 @@ const btnPrev = document.querySelector('.before');
 const btnRestart = document.querySelector('.restart');
 
 const createClasses = (arr) => {
-  moves = 0;
   for (let i = 0; i < arr.length; i++) {
     arr[i].classList.add(`n-${arr[i].innerHTML}`);
   }
@@ -46,6 +45,8 @@ const startNumbers = () => {
 }
 
 const createBoard = () => {
+  moves = 0;
+  movesContainer.innerHTML = moves;
   board.innerHTML = '';
   for (let i = 0; i < width * width; i++) {
     const item = `<div class="square n-0">0</div>`;
