@@ -25,10 +25,16 @@ const removeClasses = (arr) => {
 
 const startNumbers = () => {
   let random = Math.floor(Math.random() * squares.length);
-  if (squares[random].innerHTML == 0) {
-    squares[random].innerHTML = 2;
-  } else {
-    startNumbers()
+  let count = 0;
+  squares.forEach(item => {
+    if(item.innerHTML == 0) count++;
+  })
+  if (count > 0) {
+    if (squares[random].innerHTML == 0) {
+      squares[random].innerHTML = 2;
+    } else {
+      startNumbers()
+    }
   }
 }
 
