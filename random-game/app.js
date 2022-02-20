@@ -5,6 +5,7 @@ const width = 4;
 let scoreContainer = document.querySelector('.score');
 let movesContainer = document.querySelector('.moves');
 let score = 0;
+let maxNumber = 0;
 let moves = 0;
 let isWinning = false;
 let isFault = false;
@@ -187,15 +188,23 @@ const checkFault = () => {
   for (let i = 0; i < squares.length - 1; i++) {
     if (squares[i].innerHTML == squares[i + 1].innerHTML || squares[i].innerHTML == 0 || squares[i + 1].innerHTML == 0) {
       count += 1;
+      break;
     }
   }
   for (let i = 0; i < 12 - 1; i++) {
     if (squares[i].innerHTML == squares[i + 4].innerHTML || squares[i].innerHTML == 0 || squares[i + 4].innerHTML == 0) {
       count += 1;
+      break;
     }
   }
   console.log(count);
   return count === 0;
+}
+
+const countMaxNumber = () => {
+  squares.forEach(item => {
+    if (item.innerHTML > maxNumber) maxNumber = item.innerHTML;
+  })
 }
 
 const goTo = (func, funcDirection) => {
@@ -212,7 +221,8 @@ const goTo = (func, funcDirection) => {
     resultContainer.innerHTML = "Вы проиграли!"
     return isFault = true;
   }
-  if (score >= 2048) {
+  countMaxNumber()
+  if (maxNumber >= 2048) {
     isWinning = true;
     resultContainer.innerHTML = "Вы победили!"
   }
