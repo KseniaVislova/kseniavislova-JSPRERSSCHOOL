@@ -31,7 +31,11 @@ const startNumbers = () => {
   })
   if (count > 0) {
     if (squares[random].innerHTML == 0) {
-      squares[random].innerHTML = 2;
+      if (Math.random() < 0.3) {
+        squares[random].innerHTML = 4;
+      } else {
+        squares[random].innerHTML = 2;
+      }
     } else {
       startNumbers()
     }
