@@ -55,7 +55,7 @@ const getColumn = (arr, start) => {
   }
 }
 
-const sumRow = () => {
+const sumRowRight = () => {
   for(let i = 0; i < 15; i++) {
     if(squares[i].innerHTML === squares[i + 1].innerHTML) {
       let sum = parseInt(squares[i].innerHTML) + parseInt(squares[i + 1].innerHTML);
@@ -67,7 +67,19 @@ const sumRow = () => {
   }
 }
 
-const sumColumn = () => {
+const sumRowLeft = () => {
+  for(let i = 15; i > 0; i--) {
+    if(squares[i].innerHTML === squares[i - 1].innerHTML) {
+      let sum = parseInt(squares[i].innerHTML) + parseInt(squares[i - 1].innerHTML);
+      squares[i].innerHTML = sum;
+      score += sum;
+      scoreContainer.innerHTML = score;
+      squares[i - 1].innerHTML = 0;
+    }
+  }
+}
+
+const sumColumnUp = () => {
   for(let i = 0; i < 12; i++) {
     if(squares[i].innerHTML === squares[i + 4].innerHTML) {
       let sum = parseInt(squares[i].innerHTML) + parseInt(squares[i + 4].innerHTML);
@@ -75,6 +87,18 @@ const sumColumn = () => {
       score += sum;
       scoreContainer.innerHTML = score;
       squares[i + 4].innerHTML = 0;
+    }
+  }
+}
+
+const sumColumnDown = () => {
+  for(let i = 15; i > 3; i--) {
+    if(squares[i].innerHTML === squares[i - 4].innerHTML) {
+      let sum = parseInt(squares[i].innerHTML) + parseInt(squares[i - 4].innerHTML);
+      squares[i].innerHTML = sum;
+      score += sum;
+      scoreContainer.innerHTML = score;
+      squares[i - 4].innerHTML = 0;
     }
   }
 }
@@ -160,10 +184,10 @@ const goTo = (func, funcDirection) => {
 }
 
 const getKey = (e) => {
-  if(e.key === 'ArrowDown') goTo(moveDown, sumColumn);
-  if(e.key === 'ArrowUp') goTo(moveUp, sumColumn);
-  if(e.key === 'ArrowLeft') goTo(moveLeft, sumRow);
-  if(e.key === 'ArrowRight') goTo(moveRight, sumRow);
+  if(e.key === 'ArrowDown') goTo(moveDown, sumColumnDown);
+  if(e.key === 'ArrowUp') goTo(moveUp, sumColumnUp);
+  if(e.key === 'ArrowLeft') goTo(moveLeft, sumRowRight);
+  if(e.key === 'ArrowRight') goTo(moveRight, sumRowLeft);
 }
 
-document.addEventListener('keyup', getKey)
+document.addEventListener('keyup', getKey);
