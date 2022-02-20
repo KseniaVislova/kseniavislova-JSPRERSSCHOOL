@@ -184,6 +184,9 @@ const savePrev = () => {
 }
 
 const checkFault = () => {
+  if (resultContainer.innerHTML == "Вы проиграли!") {
+    resultContainer.innerHTML = "";
+  }
   count = 0;
   for (let i = 0; i < squares.length - 1; i++) {
     if (squares[i].innerHTML == squares[i + 1].innerHTML || squares[i].innerHTML == 0 || squares[i + 1].innerHTML == 0) {
@@ -208,7 +211,9 @@ const countMaxNumber = () => {
 }
 
 const goTo = (func, funcDirection) => {
-  savePrev();
+  if(checkFault() === false) {
+    savePrev();
+  }
   removeClasses(squares);
   func();
   funcDirection();
@@ -234,6 +239,7 @@ const goBack = () => {
     squares[i].innerHTML = squaresPrev[i];
   }
   createClasses(squares);
+  checkFault();
   moves += 1;
   movesContainer.innerHTML = moves;
 }
