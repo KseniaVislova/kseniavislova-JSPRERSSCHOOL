@@ -210,6 +210,16 @@ const countMaxNumber = () => {
   })
 }
 
+const checkChanges = () => {
+  let count = 0;
+  for(let i = 0; i < squares.length; i++) {
+    if (squares[i].innerHTML === squaresPrev[i]) {
+      count++;
+    }
+  }
+  return count === squares.length;
+}
+
 const goTo = (func, funcDirection) => {
   if(checkFault() === false) {
     savePrev();
@@ -220,8 +230,6 @@ const goTo = (func, funcDirection) => {
   func();
   startNumbers();
   createClasses(squares);
-  moves += 1;
-  movesContainer.innerHTML = moves;
   if(checkFault() === true) {
     resultContainer.innerHTML = "Вы проиграли!"
     return isFault = true;
@@ -230,6 +238,10 @@ const goTo = (func, funcDirection) => {
   if (maxNumber >= 2048) {
     isWinning = true;
     resultContainer.innerHTML = "Вы победили!"
+  }
+  if(checkChanges() === false) {
+    moves += 1;
+    movesContainer.innerHTML = moves;
   }
 }
 
