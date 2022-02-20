@@ -7,6 +7,7 @@ let movesContainer = document.querySelector('.moves');
 let score = 0;
 let moves = 0;
 let isWinning = false;
+let isFault = false;
 const resultContainer = document.querySelector('.result');
 const btnPrev = document.querySelector('.before')
 
@@ -172,6 +173,21 @@ const savePrev = () => {
   console.log(squaresPrev);
 }
 
+const checkFault = () => {
+  count = 0;
+  for (let i = 0; i < squares.length - 1; i++) {
+    if (squares[i].innerHTML == squares[i + 1].innerHTML ) {
+      count += 1;
+    }
+  }
+  for (let i = 0; i < 12 - 1; i++) {
+    if (squares[i].innerHTML == squares[i + 4].innerHTML ) {
+      count += 1;
+    }
+  }
+  return count === 0;
+}
+
 const goTo = (func, funcDirection) => {
   savePrev();
   removeClasses(squares);
@@ -182,6 +198,10 @@ const goTo = (func, funcDirection) => {
   createClasses(squares);
   moves += 1;
   movesContainer.innerHTML = moves;
+  if(checkFault() === true) {
+    resultContainer.innerHTML = "Вы проиграли!"
+    return isFault = true;
+  }
   if (score >= 2048) {
     isWinning = true;
     resultContainer.innerHTML = "Вы победили!"
