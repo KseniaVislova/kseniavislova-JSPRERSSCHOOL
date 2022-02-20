@@ -180,21 +180,21 @@ const savePrev = () => {
   squares.forEach(item => {
     squaresPrev.push(item.innerHTML);
   })
-  console.log(squaresPrev);
 }
 
 const checkFault = () => {
   count = 0;
   for (let i = 0; i < squares.length - 1; i++) {
-    if (squares[i].innerHTML == squares[i + 1].innerHTML ) {
+    if (squares[i].innerHTML == squares[i + 1].innerHTML || squares[i].innerHTML == 0 || squares[i + 1].innerHTML == 0) {
       count += 1;
     }
   }
   for (let i = 0; i < 12 - 1; i++) {
-    if (squares[i].innerHTML == squares[i + 4].innerHTML ) {
+    if (squares[i].innerHTML == squares[i + 4].innerHTML || squares[i].innerHTML == 0 || squares[i + 4].innerHTML == 0) {
       count += 1;
     }
   }
+  console.log(count);
   return count === 0;
 }
 
