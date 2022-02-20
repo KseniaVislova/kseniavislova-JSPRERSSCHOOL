@@ -8,6 +8,7 @@ let score = 0;
 let moves = 0;
 let isWinning = false;
 const resultContainer = document.querySelector('.result');
+const btnPrev = document.querySelector('.before')
 
 const createClasses = (arr) => {
   for (let i = 0; i < arr.length; i++) {
@@ -164,7 +165,11 @@ const moveDown = () => {
 }
 
 const savePrev = () => {
-  squaresPrev = squares;
+  squaresPrev = [];
+  squares.forEach(item => {
+    squaresPrev.push(item.innerHTML);
+  })
+  console.log(squaresPrev);
 }
 
 const goTo = (func, funcDirection) => {
@@ -183,6 +188,16 @@ const goTo = (func, funcDirection) => {
   }
 }
 
+const goBack = () => {
+  removeClasses(squares);
+  for (let i = 0; i < squares.length; i++) {
+    squares[i].innerHTML = squaresPrev[i];
+  }
+  createClasses(squares);
+  moves += 1;
+  movesContainer.innerHTML = moves;
+}
+
 const getKey = (e) => {
   if(e.key === 'ArrowDown') goTo(moveDown, sumColumnDown);
   if(e.key === 'ArrowUp') goTo(moveUp, sumColumnUp);
@@ -191,3 +206,4 @@ const getKey = (e) => {
 }
 
 document.addEventListener('keyup', getKey);
+btnPrev.addEventListener('click', goBack);
