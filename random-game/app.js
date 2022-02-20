@@ -14,6 +14,7 @@ const btnPrev = document.querySelector('.before');
 const btnRestart = document.querySelector('.restart');
 
 const createClasses = (arr) => {
+  moves = 0;
   for (let i = 0; i < arr.length; i++) {
     arr[i].classList.add(`n-${arr[i].innerHTML}`);
   }
