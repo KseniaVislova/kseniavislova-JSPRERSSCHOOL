@@ -32,12 +32,14 @@ body {
 }
 
 .n-0 {
+  color: #222;
   border-color: #0ff;
   box-shadow: 0 0 5px #0ff,
                 0 0 10px #fff;
 }
 
 .n-2 {
+  color: rgb(106, 255, 0);
   background-color: rgba(106, 255, 0, 0.2);
   border-color: rgb(106, 255, 0);
   box-shadow: 0 0 5px rgb(106, 255, 0),
@@ -45,6 +47,7 @@ body {
 }
 
 .n-4 {
+  color: rgb(105, 84, 141);
   background-color: rgba(47, 13, 107, 0.2);
   border-color: rgb(47, 13, 107);
   box-shadow: 0 0 5px rgb(47, 13, 107),
@@ -52,6 +55,7 @@ body {
 }
 
 .n-8 {
+  color: rgb(0, 102, 255);
   background-color: rgba(0, 102, 255, 0.2);
   border-color: rgb(0, 102, 255);
   box-shadow: 0 0 5px rgb(0, 102, 255),
@@ -59,6 +63,7 @@ body {
 }
 
 .n-16 {
+  color: rgb(255, 174, 0);
   background-color: rgba(255, 174, 0, 0.2);
   border-color: rgb(255, 174, 0);
   box-shadow: 0 0 5px rgb(255, 174, 0),
@@ -66,6 +71,7 @@ body {
 }
 
 .n-32 {
+  color: rgb(218, 33, 33);
   background-color: rgba(107, 13, 13, 0.2);
   border-color: rgb(107, 13, 13);
   box-shadow: 0 0 5px rgb(107, 13, 13),
@@ -73,6 +79,7 @@ body {
 }
 
 .n-64 {
+  color: rgb(73, 156, 70);
   background-color: rgba(73, 156, 70, 0.2);
   border-color: rgb(73, 156, 70);
   box-shadow: 0 0 5px rgb(73, 156, 70),
@@ -80,6 +87,7 @@ body {
 }
 
 .n-128 {
+  color: rgb(255, 55, 0);
   background-color: rgba(255, 55, 0, 0.2);
   border-color: rgb(255, 55, 0);
   box-shadow: 0 0 5px rgb(255, 55, 0),
@@ -87,6 +95,7 @@ body {
 }
 
 .n-256 {
+  color: rgb(109, 90, 142);
   background-color: rgba(109, 90, 142, 0.2);
   border-color: rgb(109, 90, 142);
   box-shadow: 0 0 5px rgb(109, 90, 142),
@@ -94,6 +103,7 @@ body {
 }
 
 .n-512 {
+  color: rgb(204, 181, 11);
   background-color: rgba(204, 181, 11, 0.2);
   border-color: rgb(204, 181, 11);
   box-shadow: 0 0 5px rgb(204, 181, 11),
@@ -101,6 +111,7 @@ body {
 }
 
 .n-1024 {
+  color: rgb(179, 0, 255);
   background-color: rgba(179, 0, 255, 0.2);
   border-color: rgb(179, 0, 255);
   box-shadow: 0 0 5px rgb(179, 0, 255),
@@ -108,6 +119,7 @@ body {
 }
 
 .n-2048 {
+  color: rgb(215, 47, 58);
   background-color: rgba(215, 47, 58, 0.2);
   border-color: rgb(215, 47, 58);
   box-shadow: 0 0 5px rgb(215, 47, 58),
