@@ -12,6 +12,18 @@ let isFault = false;
 const resultContainer = document.querySelector('.result');
 const btnPrev = document.querySelector('.before');
 const btnRestart = document.querySelector('.restart');
+const rating = document.querySelector('.rating');
+const bestGame = {score: 0, moves: 0};
+const firstGame = {score: 0, moves: 0};
+const secondGame = {score: 0, moves: 0};
+const thirdGame = {score: 0, moves: 0};
+const fourthGame = {score: 0, moves: 0};
+const fifthGame = {score: 0, moves: 0};
+const sixthGame = {score: 0, moves: 0};
+const seventhGame = {score: 0, moves: 0};
+const eighthGame = {score: 0, moves: 0};
+const ninethGame = {score: 0, moves: 0};
+const tenthGame = {score: 0, moves: 0};
 
 const createClasses = (arr) => {
   for (let i = 0; i < arr.length; i++) {
@@ -285,3 +297,23 @@ const getKey = (e) => {
 
 document.addEventListener('keyup', getKey);
 btnPrev.addEventListener('click', goBack);
+
+const createRating = () => {
+  const item = `<div class="best"><h4>Best result</h4><span>score: ${bestGame.score}, moves: ${bestGame.moves}</span></div>`;
+  const otherResults = `<div class="best"><h4>Last results</h4><ol>
+    <li>score: ${firstGame.score}, moves: ${firstGame.moves}</li>
+    <li>score: ${secondGame.score}, moves: ${secondGame.moves}</li>
+    <li>score: ${thirdGame.score}, moves: ${thirdGame.moves}</li>
+    <li>score: ${fourthGame.score}, moves: ${fourthGame.moves}</li>
+    <li>score: ${fifthGame.score}, moves: ${fifthGame.moves}</li>
+    <li>score: ${sixthGame.score}, moves: ${sixthGame.moves}</li>
+    <li>score: ${seventhGame.score}, moves: ${seventhGame.moves}</li>
+    <li>score: ${eighthGame.score}, moves: ${eighthGame.moves}</li>
+    <li>score: ${ninethGame.score}, moves: ${ninethGame.moves}</li>
+    <li>score: ${tenthGame.score}, moves: ${tenthGame.moves}</li>
+  </ol></div>`
+  rating.insertAdjacentHTML('beforeend', item);
+  rating.insertAdjacentHTML('beforeend', otherResults);
+}
+
+createRating();

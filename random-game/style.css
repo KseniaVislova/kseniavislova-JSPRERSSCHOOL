@@ -46,6 +46,12 @@ body {
   border: none;
 }
 
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
 .board {
   display: flex;
   flex-wrap: wrap;
