@@ -269,6 +269,9 @@ const checkFault = () => {
   }
   count = 0;
   for (let i = 0; i < squares.length - 1; i++) {
+    if(i === 3 || i === 7 || i === 11) {
+      continue; 
+    }
     if (squares[i].innerHTML == squares[i + 1].innerHTML || squares[i].innerHTML == 0 || squares[i + 1].innerHTML == 0) {
       count += 1;
       break;
