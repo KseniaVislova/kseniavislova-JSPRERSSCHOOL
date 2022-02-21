@@ -134,6 +134,7 @@ createBoard();
 btnRestart.addEventListener('click',  () => {
   saveRatings();
   updateBestResult();
+  resultContainer.innerHTML = '';
   createBoard();
 });
 
@@ -264,7 +265,7 @@ const moveDown = () => {
 }
 
 const checkFault = () => {
-  if (resultContainer.innerHTML == "Вы проиграли!") {
+  if (resultContainer.innerHTML == "Lose!") {
     resultContainer.innerHTML = "";
   }
   count = 0;
@@ -288,7 +289,7 @@ const checkFault = () => {
 
 const countMaxNumber = () => {
   squares.forEach(item => {
-    if (item.innerHTML > maxNumber) maxNumber = item.innerHTML;
+    if (parseInt(item.innerHTML) > maxNumber) maxNumber = item.innerHTML;
   })
 }
 
@@ -313,18 +314,21 @@ const goTo = (func, funcDirection) => {
   startNumbers();
   createClasses(squares);
   if(checkFault() === true) {
-    resultContainer.innerHTML = "Вы проиграли!"
+    resultContainer.innerHTML = `<div><h3>Lose!</h3><span>score: ${score}, moves: ${moves}</span></div>`;
     saveRatings();
     updateBestResult();
+    setLocalStorage();
     btnPrev.disabled = true;
     return isFault = true;
   }
   countMaxNumber()
-  if (maxNumber >= 2048) {
+  console.log(maxNumber)
+  if (maxNumber >= 32) {
     isWinning = true;
-    resultContainer.innerHTML = "Вы победили!";
+    resultContainer.innerHTML = `<div><h3>Win!</h3><span>score: ${score}, moves: ${moves}</span></div>`;
     saveRatings();
     updateBestResult();
+    setLocalStorage();
   }
   if(checkChanges() === false) {
     moves += 1;
