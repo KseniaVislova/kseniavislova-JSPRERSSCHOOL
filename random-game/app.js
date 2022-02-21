@@ -78,11 +78,13 @@ const getColumn = (arr, start) => {
 const sumRowRight = () => {
   for(let i = 0; i < 15; i++) {
     if(squares[i].innerHTML === squares[i + 1].innerHTML) {
-      let sum = parseInt(squares[i].innerHTML) + parseInt(squares[i + 1].innerHTML);
-      squares[i].innerHTML = sum;
-      score += sum;
-      scoreContainer.innerHTML = score;
-      squares[i + 1].innerHTML = 0;
+      if(i !== 3 || i !== 7 || i !== 11) {
+        let sum = parseInt(squares[i].innerHTML) + parseInt(squares[i + 1].innerHTML);
+        squares[i].innerHTML = sum;
+        score += sum;
+        scoreContainer.innerHTML = score;
+        squares[i + 1].innerHTML = 0;
+      }
     }
   }
 }
