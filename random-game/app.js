@@ -14,23 +14,8 @@ const btnPrev = document.querySelector('.before');
 const btnRestart = document.querySelector('.restart');
 const best = document.querySelector('.best');
 const rating = document.querySelector('.last');
-const bestGame = {score: 0, moves: 0};
+let bestGame = {score: 0, moves: 0};
 let lastResults = [{score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0},]
-
-const setLocalStorage = () => {
-  console.log(lastResults)
-  localStorage.setItem('lastResults', JSON.stringify(lastResults));
-}
-
-const getLocalStorage = () => {
-  if(localStorage.getItem('lastResults')) {
-    console.log(localStorage);
-    const results = JSON.parse(localStorage.getItem('lastResults'));
-    rating.innerHTML = '';
-    createRating(results);
-    lastResults = results;
-  }
-}
 
 const createClasses = (arr) => {
   for (let i = 0; i < arr.length; i++) {
@@ -88,6 +73,7 @@ const createBoard = () => {
 }
 
 const createBest = () => {
+  best.innerHTML = '';
   const item = `<div class="best"><h4>Best result</h4><span>score: ${bestGame.score}, moves: ${bestGame.moves}</span></div>`;
   best.insertAdjacentHTML('beforeend', item);
 }
@@ -98,6 +84,27 @@ const createRating = (lastResults) => {
   rating.insertAdjacentHTML('beforeend', otherResults);
 }
 
+const setLocalStorage = () => {
+  localStorage.setItem('lastResults', JSON.stringify(lastResults));
+  localStorage.setItem('bestGame', JSON.stringify(bestGame));
+}
+
+const getLocalStorage = () => {
+  if(localStorage.getItem('lastResults')) {
+    console.log(localStorage);
+    const results = JSON.parse(localStorage.getItem('lastResults'));
+    rating.innerHTML = '';
+    createRating(results);
+    lastResults = results;
+  }
+  if(localStorage.getItem('bestGame')) {
+    console.log(localStorage);
+    const result = JSON.parse(localStorage.getItem('bestGame'));
+    bestGame = result;
+    createBest();
+  }
+}
+
 createBest();
 
 const updateBestResult = () => {
@@ -106,7 +113,6 @@ const updateBestResult = () => {
       console.log('work')
       bestGame.score = score;
       bestGame.moves = moves;
-      best.innerHTML = '';
       createBest();
     } 
   } 
@@ -121,12 +127,13 @@ const saveRatings = () => {
   rating.innerHTML = '';
   createRating(lastResults);
   createBest();
+
 }
 
 createBoard();
 btnRestart.addEventListener('click',  () => {
   saveRatings();
-  setLocalStorage();
+  updateBestResult();
   createBoard();
 });
 
@@ -305,7 +312,7 @@ const goTo = (func, funcDirection) => {
   if(checkFault() === true) {
     resultContainer.innerHTML = "Вы проиграли!"
     saveRatings();
-    setLocalStorage()
+    updateBestResult();
     btnPrev.disabled = true;
     return isFault = true;
   }
@@ -314,7 +321,7 @@ const goTo = (func, funcDirection) => {
     isWinning = true;
     resultContainer.innerHTML = "Вы победили!";
     saveRatings();
-    setLocalStorage()
+    updateBestResult();
   }
   if(checkChanges() === false) {
     moves += 1;
@@ -349,5 +356,6 @@ const getKey = (e) => {
 document.addEventListener('keyup', getKey);
 btnPrev.addEventListener('click', goBack);
 
-//window.addEventListener('load', setLocalStorage);
-window.addEventListener('load', getLocalStorage)
+window.addEventListener('beforeunload', saveRatings);
+window.addEventListener('beforeunload', setLocalStorage);
+window.addEventListener('load', getLocalStorage);
