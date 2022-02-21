@@ -12,9 +12,10 @@ let isFault = false;
 const resultContainer = document.querySelector('.result');
 const btnPrev = document.querySelector('.before');
 const btnRestart = document.querySelector('.restart');
-const rating = document.querySelector('.rating');
+const best = document.querySelector('.best');
+const rating = document.querySelector('.last');
 const bestGame = {score: 0, moves: 0};
-const lastResults = [{score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0},]
+let lastResults = [{score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0},]
 
 const setLocalStorage = () => {
   console.log(lastResults)
@@ -27,6 +28,7 @@ const getLocalStorage = () => {
     const results = JSON.parse(localStorage.getItem('lastResults'));
     rating.innerHTML = '';
     createRating(results);
+    lastResults = results;
   }
 }
 
@@ -85,12 +87,29 @@ const createBoard = () => {
   savePrev();
 }
 
-const createRating = (lastResults) => {
+const createBest = () => {
   const item = `<div class="best"><h4>Best result</h4><span>score: ${bestGame.score}, moves: ${bestGame.moves}</span></div>`;
+  best.insertAdjacentHTML('beforeend', item);
+}
+
+const createRating = (lastResults) => {
   const results = lastResults.map(item => `<li>score: ${item.score}, moves: ${item.moves}</li>`);
   const otherResults = `<div class="best"><h4>Last results</h4><ol>${results.flat(Infinity).join('')}</ol></div>`
-  rating.insertAdjacentHTML('beforeend', item);
   rating.insertAdjacentHTML('beforeend', otherResults);
+}
+
+createBest();
+
+const updateBestResult = () => {
+  if(score >= bestGame.score) {
+    if(moves >= bestGame.moves) {
+      console.log('work')
+      bestGame.score = score;
+      bestGame.moves = moves;
+      best.innerHTML = '';
+      createBest();
+    } 
+  } 
 }
 
 const saveRatings = () => {
@@ -101,6 +120,7 @@ const saveRatings = () => {
   lastResults[0].moves = moves;
   rating.innerHTML = '';
   createRating(lastResults);
+  createBest();
 }
 
 createBoard();
@@ -301,6 +321,7 @@ const goTo = (func, funcDirection) => {
     movesContainer.innerHTML = moves;
   }
   btnPrev.disabled = false;
+  updateBestResult();
 }
 
 const goBack = () => {
