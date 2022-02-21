@@ -15,7 +15,8 @@ const btnRestart = document.querySelector('.restart');
 const best = document.querySelector('.best');
 const rating = document.querySelector('.last');
 let bestGame = {score: 0, moves: 0};
-let lastResults = [{score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0},]
+let lastResults = [{score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0},];
+const audio = document.querySelector('audio');
 
 const createClasses = (arr) => {
   for (let i = 0; i < arr.length; i++) {
@@ -134,6 +135,9 @@ btnRestart.addEventListener('click',  () => {
   updateBestResult();
   resultContainer.innerHTML = '';
   createBoard();
+  isWinning = false;
+  isFault = false;
+  audio.src = `./assets/audio/step.mp3`;
 });
 
 const getRow = (arr, start, end) => {
@@ -302,6 +306,7 @@ const checkChanges = () => {
 }
 
 const goTo = (func, funcDirection) => {
+  audio.play();
   if(checkFault() === false) {
     savePrev();
   }
@@ -312,6 +317,8 @@ const goTo = (func, funcDirection) => {
   startNumbers();
   createClasses(squares);
   if(checkFault() === true) {
+    audio.src = './assets/audio/lose.mp3';
+    audio.play();
     resultContainer.innerHTML = `<div><h3>Lose!</h3><span>score: ${score}, moves: ${moves}</span></div>`;
     saveRatings();
     updateBestResult();
@@ -320,7 +327,9 @@ const goTo = (func, funcDirection) => {
     return isFault = true;
   }
   countMaxNumber()
-  if (maxNumber >= 32) {
+  if (maxNumber >= 2048) {
+    audio.src = './assets/audio/win.mp3';
+    audio.play();
     isWinning = true;
     resultContainer.innerHTML = `<div><h3>Win!</h3><span>score: ${score}, moves: ${moves}</span></div>`;
     saveRatings();
