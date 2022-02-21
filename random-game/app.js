@@ -354,10 +354,12 @@ const goBack = () => {
 }
 
 const getKey = (e) => {
-  if(e.key === 'ArrowDown') goTo(moveDown, sumColumnDown);
-  if(e.key === 'ArrowUp') goTo(moveUp, sumColumnUp);
-  if(e.key === 'ArrowLeft') goTo(moveLeft, sumRowLeft);
-  if(e.key === 'ArrowRight') goTo(moveRight, sumRowRight);
+  if (isWinning === false && isFault === false) {
+    if(e.key === 'ArrowDown') goTo(moveDown, sumColumnDown);
+    if(e.key === 'ArrowUp') goTo(moveUp, sumColumnUp);
+    if(e.key === 'ArrowLeft') goTo(moveLeft, sumRowLeft);
+    if(e.key === 'ArrowRight') goTo(moveRight, sumRowRight);
+  }
 }
 
 document.addEventListener('keyup', getKey);
