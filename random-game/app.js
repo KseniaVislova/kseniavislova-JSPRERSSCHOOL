@@ -322,7 +322,6 @@ const goTo = (func, funcDirection) => {
     return isFault = true;
   }
   countMaxNumber()
-  console.log(maxNumber)
   if (maxNumber >= 32) {
     isWinning = true;
     resultContainer.innerHTML = `<div><h3>Win!</h3><span>score: ${score}, moves: ${moves}</span></div>`;
