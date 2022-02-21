@@ -25,6 +25,13 @@ const removeClasses = (arr) => {
   }
 }
 
+const savePrev = () => {
+  squaresPrev = [];
+  squares.forEach(item => {
+    squaresPrev.push(item.innerHTML);
+  })
+}
+
 const startNumbers = () => {
   let random = Math.floor(Math.random() * squares.length);
   let count = 0;
@@ -58,6 +65,7 @@ const createBoard = () => {
   startNumbers();
   startNumbers();
   createClasses(squares);
+  savePrev();
 }
 
 createBoard();
@@ -185,13 +193,6 @@ const moveDown = () => {
   }
 }
 
-const savePrev = () => {
-  squaresPrev = [];
-  squares.forEach(item => {
-    squaresPrev.push(item.innerHTML);
-  })
-}
-
 const checkFault = () => {
   if (resultContainer.innerHTML == "Вы проиграли!") {
     resultContainer.innerHTML = "";
@@ -252,6 +253,7 @@ const goTo = (func, funcDirection) => {
     moves += 1;
     movesContainer.innerHTML = moves;
   }
+  btnPrev.disabled = false;
 }
 
 const goBack = () => {
@@ -261,8 +263,12 @@ const goBack = () => {
   }
   createClasses(squares);
   checkFault();
-  moves += 1;
-  movesContainer.innerHTML = moves;
+
+  if (moves !== 0) {
+    moves += 1;
+    movesContainer.innerHTML = moves;
+  }
+  btnPrev.disabled = true;
 }
 
 const getKey = (e) => {
