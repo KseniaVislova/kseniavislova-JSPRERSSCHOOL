@@ -360,10 +360,10 @@ const goBack = () => {
 
 const getKey = (e) => {
   if (isWinning === false && isFault === false) {
-    if(e.key === 'ArrowDown') goTo(moveDown, sumColumnDown);
-    if(e.key === 'ArrowUp') goTo(moveUp, sumColumnUp);
-    if(e.key === 'ArrowLeft') goTo(moveLeft, sumRowLeft);
-    if(e.key === 'ArrowRight') goTo(moveRight, sumRowRight);
+    if(e.code === 'KeyS') goTo(moveDown, sumColumnDown);
+    if(e.code === 'KeyW') goTo(moveUp, sumColumnUp);
+    if(e.code === 'KeyA') goTo(moveLeft, sumRowLeft);
+    if(e.code === 'KeyD') goTo(moveRight, sumRowRight);
   }
 }
 
