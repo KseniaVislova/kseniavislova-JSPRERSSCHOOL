@@ -44,6 +44,7 @@ body {
   font-size: 25px;
   font-weight: 700;
   border: none;
+  cursor: pointer;
 }
 
 .wrapper {
