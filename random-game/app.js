@@ -16,6 +16,19 @@ const rating = document.querySelector('.rating');
 const bestGame = {score: 0, moves: 0};
 const lastResults = [{score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0}, {score: 0, moves: 0},]
 
+const setLocalStorage = () => {
+  console.log(lastResults)
+  localStorage.setItem('lastResults', JSON.stringify(lastResults));
+}
+
+const getLocalStorage = () => {
+  if(localStorage.getItem('lastResults')) {
+    console.log(localStorage);
+    const results = JSON.parse(localStorage.getItem('lastResults'));
+    rating.innerHTML = '';
+    createRating(results);
+  }
+}
 
 const createClasses = (arr) => {
   for (let i = 0; i < arr.length; i++) {
@@ -72,16 +85,13 @@ const createBoard = () => {
   savePrev();
 }
 
-const createRating = () => {
+const createRating = (lastResults) => {
   const item = `<div class="best"><h4>Best result</h4><span>score: ${bestGame.score}, moves: ${bestGame.moves}</span></div>`;
   const results = lastResults.map(item => `<li>score: ${item.score}, moves: ${item.moves}</li>`);
-  console.log(results);
   const otherResults = `<div class="best"><h4>Last results</h4><ol>${results.flat(Infinity).join('')}</ol></div>`
   rating.insertAdjacentHTML('beforeend', item);
   rating.insertAdjacentHTML('beforeend', otherResults);
 }
-
-createRating();
 
 const saveRatings = () => {
   for(let i = lastResults.length - 1; i > 0; i--) {
@@ -90,12 +100,13 @@ const saveRatings = () => {
   lastResults[0].score = score;
   lastResults[0].moves = moves;
   rating.innerHTML = '';
-  createRating();
+  createRating(lastResults);
 }
 
 createBoard();
 btnRestart.addEventListener('click',  () => {
   saveRatings();
+  setLocalStorage();
   createBoard();
 });
 
@@ -117,7 +128,6 @@ const sumRowRight = () => {
       if(i === 3 || i === 7 || i === 11) {
         continue; 
       }
-      console.log(i)
       let sum = parseInt(squares[i].innerHTML) + parseInt(squares[i + 1].innerHTML);
       squares[i].innerHTML = sum;
       score += sum;
@@ -243,7 +253,6 @@ const checkFault = () => {
       break;
     }
   }
-  console.log(count);
   return count === 0;
 }
 
@@ -276,6 +285,8 @@ const goTo = (func, funcDirection) => {
   if(checkFault() === true) {
     resultContainer.innerHTML = "Вы проиграли!"
     saveRatings();
+    setLocalStorage()
+    btnPrev.disabled = true;
     return isFault = true;
   }
   countMaxNumber()
@@ -283,6 +294,7 @@ const goTo = (func, funcDirection) => {
     isWinning = true;
     resultContainer.innerHTML = "Вы победили!";
     saveRatings();
+    setLocalStorage()
   }
   if(checkChanges() === false) {
     moves += 1;
@@ -315,3 +327,6 @@ const getKey = (e) => {
 
 document.addEventListener('keyup', getKey);
 btnPrev.addEventListener('click', goBack);
+
+//window.addEventListener('load', setLocalStorage);
+window.addEventListener('load', getLocalStorage)
