@@ -109,7 +109,6 @@ createBest();
 const updateBestResult = () => {
   if(score >= bestGame.score) {
     if(moves >= bestGame.moves) {
-      console.log('work')
       bestGame.score = score;
       bestGame.moves = moves;
       createBest();
