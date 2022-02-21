@@ -75,13 +75,13 @@ const createBoard = () => {
 
 const createBest = () => {
   best.innerHTML = '';
-  const item = `<div class="best"><h4>Best result</h4><span>score: ${bestGame.score}, moves: ${bestGame.moves}</span></div>`;
+  const item = `<div class="best"><h4>Best result: </h4><span>score: ${bestGame.score}, moves: ${bestGame.moves}</span></div>`;
   best.insertAdjacentHTML('beforeend', item);
 }
 
 const createRating = (lastResults) => {
   const results = lastResults.map(item => `<li>score: ${item.score}, moves: ${item.moves}</li>`);
-  const otherResults = `<div class="best"><h4>Last results</h4><ol>${results.flat(Infinity).join('')}</ol></div>`
+  const otherResults = `<div class="last"><h4>Last results: </h4><ol class="list">${results.flat(Infinity).join('')}</ol></div>`
   rating.insertAdjacentHTML('beforeend', otherResults);
 }
 
