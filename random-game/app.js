@@ -91,14 +91,12 @@ const setLocalStorage = () => {
 
 const getLocalStorage = () => {
   if(localStorage.getItem('lastResults')) {
-    console.log(localStorage);
     const results = JSON.parse(localStorage.getItem('lastResults'));
     rating.innerHTML = '';
     createRating(results);
     lastResults = results;
   }
   if(localStorage.getItem('bestGame')) {
-    console.log(localStorage);
     const result = JSON.parse(localStorage.getItem('bestGame'));
     bestGame = result;
     createBest();
