@@ -86,13 +86,15 @@ const getColumn = (arr, start) => {
 const sumRowRight = () => {
   for(let i = 0; i < 15; i++) {
     if(squares[i].innerHTML === squares[i + 1].innerHTML) {
-      if(i !== 3 || i !== 7 || i !== 11) {
-        let sum = parseInt(squares[i].innerHTML) + parseInt(squares[i + 1].innerHTML);
-        squares[i].innerHTML = sum;
-        score += sum;
-        scoreContainer.innerHTML = score;
-        squares[i + 1].innerHTML = 0;
+      if(i === 3 || i === 7 || i === 11) {
+        continue; 
       }
+      console.log(i)
+      let sum = parseInt(squares[i].innerHTML) + parseInt(squares[i + 1].innerHTML);
+      squares[i].innerHTML = sum;
+      score += sum;
+      scoreContainer.innerHTML = score;
+      squares[i + 1].innerHTML = 0;
     }
   }
 }
@@ -100,6 +102,9 @@ const sumRowRight = () => {
 const sumRowLeft = () => {
   for(let i = 15; i > 0; i--) {
     if(squares[i].innerHTML === squares[i - 1].innerHTML) {
+      if(i === 12 || i === 8 || i === 4) {
+        continue; 
+      }
       let sum = parseInt(squares[i].innerHTML) + parseInt(squares[i - 1].innerHTML);
       squares[i].innerHTML = sum;
       score += sum;
@@ -274,8 +279,8 @@ const goBack = () => {
 const getKey = (e) => {
   if(e.key === 'ArrowDown') goTo(moveDown, sumColumnDown);
   if(e.key === 'ArrowUp') goTo(moveUp, sumColumnUp);
-  if(e.key === 'ArrowLeft') goTo(moveLeft, sumRowRight);
-  if(e.key === 'ArrowRight') goTo(moveRight, sumRowLeft);
+  if(e.key === 'ArrowLeft') goTo(moveLeft, sumRowLeft);
+  if(e.key === 'ArrowRight') goTo(moveRight, sumRowRight);
 }
 
 document.addEventListener('keyup', getKey);
